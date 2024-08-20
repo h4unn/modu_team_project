@@ -1,0 +1,24 @@
+@import "_reset";
+
+.container {
+  margin: 0 auto;
+  outline: 1px solid red;
+  width: 100%;
+  max-width: calc(100% - 30px);
+}
+
+
+
+
+
+
+// Header.html
+.header-weather  {
+  // background-color: red;
+}
+
+// Weather.view.html
+.weather-wrap {
+  width: 100%;
+}
+
