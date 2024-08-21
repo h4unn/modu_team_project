@@ -31,6 +31,12 @@ h2{
             color:#efefef;
             cursor:pointer;
             transition:.3s ease all;
+            &#todo_study {
+               background-color: #6750A4;
+            }
+            &#todo_import {
+               background-color: #6750A4;
+            }
          }
          & input:checked + label{
             background-color:#52A1FF;
