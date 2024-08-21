@@ -27,12 +27,12 @@ const updateLocation = () => {
       lon: state.lon,
     },
   });
-
+//   console.log(currentWeatherData);
   const weatherForecastData = await weatherService.getWeatherForecast({
     params: {
       lat: state.lat,
       lon: state.lon,
     },
   });
-  console.log(weatherForecastData);
+//   console.log(weatherForecastData);
 })();
