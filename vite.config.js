@@ -7,6 +7,7 @@ export default {
       input: {
         // 추가하고 싶은 페이지는 pages에서 추가하면 됨
         main: path.resolve(__dirname, "index.html"), // 홈
+        todo: path.resolve(__dirname, "todo.html"), // todo
         task: path.resolve(__dirname, "pages/task.html"), // 할 일
         addTask: path.resolve(__dirname, "pages/add-task.html"), // 할 일 추가
         movies: path.resolve(__dirname, "pages/movies.html"), // 영화
