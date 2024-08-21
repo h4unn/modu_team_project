@@ -1,0 +1,81 @@
+<div id="cont_wrapper">
+
+   <h2>힙스터의 Todo List</h2>
+
+   <!-- todo labels -->
+   <div class="todo_labels">
+      <ul class="todo_labels_list">
+         <li>
+            <input type="radio" name="todo_label" id="todo_import" value="중요한일" checked/>
+            <label for="todo_import">중요한일</label>
+         </li>
+         <li>
+            <input type="radio" name="todo_label" id="todo_study" value="공부"/>
+            <label for="todo_study">공부</label>
+         </li>
+         <li>
+            <input type="radio" name="todo_label" id="todo_promise" value="약속"/>
+            <label for="todo_promise">약속</label>
+         </li>
+         <li>
+            <input type="radio" name="todo_label" id="todo_reserve" value="예약"/>
+            <label for="todo_reserve">예약</label>
+         </li>
+
+      </ul>
+   </div>
+   <!-- top -->
+   <div class="top">
+      <form id="input-form">
+         <input type="text" class="text-input" name="todo" id="todo" placeholder="할일을 입력하세요."/>
+         <button id="add-btn">
+            <span>추가</span>
+            <i class="fa-solid fa-circle-plus"></i>
+         </button>
+      </form>
+   </div>
+   <main id="main">
+      <div id="filter-group">
+         <button class="filter-button all" data-action="all">
+            모두 보기
+            <strong class="count">0</strong>
+         </button>
+         <button class="filter-button created active" data-action="created">
+            생성된 할일
+            <strong class="count">0 / 0</strong>
+         </button>
+         <button class="filter-button completed" data-action="completed">
+            완료된 할일
+            <strong class="count">0 / 0</strong>
+         </button>
+      </div>
+      <ul id="todos">
+         <li class="todo-item">
+            <button class="complete-button"></button>
+            <span class="content"
+               >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Distinctio culpa, consequuntur dolore assumenda qui cumque cum
+               iste, animi blanditiis deleniti debitis iure dolorem odit. Iusto
+               temporibus delectus autem nulla ipsam!</span
+            >
+            <button class="remove-button">
+               <i class="fa-regular fa-trash-can"></i>
+            </button>
+         </li>
+         <li class="todo-item complete">
+            <button class="complete-button">
+               <i class="fa-solid fa-check"></i>
+            </button>
+            <span class="content"
+               >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Distinctio culpa, consequuntur dolore assumenda qui cumque cum
+               iste, animi blanditiis deleniti debitis iure dolorem odit. Iusto
+               temporibus delectus autem nulla ipsam!</span
+            >
+            <button class="remove-button">
+               <i class="fa-regular fa-trash-can"></i>
+            </button>
+         </li>
+      </ul>
+   </main>
+</div>
