@@ -49,10 +49,14 @@ h2{
 .top{padding:20px 0; width:100%;}
 #input-form {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    gap: 8px;
    width: 100%;
-
+   
+   .user_form{
+      display: flex;
+      gap:12px;
+   }
    .text-input {
       border-radius: 8px;
       border:1px solid #52A1FF;
