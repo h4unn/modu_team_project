@@ -11,12 +11,14 @@
 
 // fontweight 100/300/400-regular/500-midium/700-bold/900 - roboto
 
-// 홀수번째 section 마진 위아래
+
+
+// 홀수번째 section 위아래 마진
 section:nth-child(odd) {
   margin: 15px 0;
 }
 
-// 전체영역 이너
+// 전체영역 inner
 #weather-wrap .inner {
   margin: 0 auto;
   max-width: calc(100% - 30px);
@@ -26,17 +28,17 @@ section:nth-child(odd) {
 
 
 
-// 현재날씨영역 //
-.current-weather {
+// 섹션 1 - 현재날씨영역 //
+section.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 30px 20px;
   text-align: center;
-  // background-color: #EAF2FF;
   background-color: var(--wtcolor);
-  // background-color: rgba(255,255,255,0.5); 
   outline: 1px solid var(--main);
   border-radius: 12px;
-
-  color: #000;
+  color: var(--txt);
 }
 
 .current-weather h3 {
@@ -56,6 +58,7 @@ section:nth-child(odd) {
   display: block;
   font-weight: 400;
   color: #8F9098;
+
   // 한글일 때! font family, size 적용
   // font-family: 'Noto Sans KR', sans-serif;
   // font-size: 14px;
@@ -67,8 +70,8 @@ section:nth-child(odd) {
   font-size: 50px;
  }
 
-// 습도/ 최고기온 / 최저기온 //
- ul.current-weather-2 {
+// 습도 / 최고기온 / 최저기온 //
+ ul.current-weather-list {
   display: flex;
   justify-content: center;
   gap: 25px;
@@ -77,15 +80,15 @@ section:nth-child(odd) {
   color: #494A50;
  }
 
- ul.current-weather-2 li i {
+ ul.current-weather-list li i {
    color: var(--main);
    padding-right: 7px;
  }
 
 
 
-// 지역별 날씨 리스트
- .region-weather ul {
+// 섹션 2 - 지역별 날씨 리스트
+section.region-weather ul {
   // background-color: var(--wtcolor);
   background-color: rgba(255,255,255,0.8);
   border-radius: 12px;
@@ -126,27 +129,30 @@ section:nth-child(odd) {
 
 
 
-// 지역별 날씨 컨텐츠
- .region-weather-content {
-  display: flex;
-  align-items: center;
+// 섹션 3 - 지역별 날씨 컨텐츠
+section.region-weather-content {
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: var(--light);
-  border-radius: 12px;
   padding: 20px;
+  text-align: left;
  }
 
  .region-weather-content h3 {
   flex-basis: 70%;
+  color: var(--txt);
+  font-weight: 500;
+
  }
 
  .region-weather-content img {
-    max-width: 80px;
+    max-width: 70px;
  }
 
  .region-weather-content ul {
    padding: 0;
+   font-size: 16px;
  }
 
 

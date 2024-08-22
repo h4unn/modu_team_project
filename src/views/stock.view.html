@@ -1,0 +1,52 @@
+<h1>멋쟁이들</h1>
+
+<div class="stock_div">
+    <h2>Stock</h2>    
+    
+    <!-- 종목코드 입력 폼 -->
+    <form action="">
+        <input type="text" name="stock_code" placeholder="종목코드를 입력하세요.">
+        <button>조회</button>
+    </form>    
+
+    
+    <!-- 종목코드 검색 -->
+    <!-- <a class="code_search" href="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020101" target='_blank'>종목코드 조회</a> -->
+
+
+    <!-- 차트 그리기 -->
+     <!-- 입력값에 따라 값 변경, 그래프 좀 더 이쁘게 그리는 법 찾기 -->
+    <div class="stock_chart">
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['08/12', '08/13', '08/14', '08/16', '08/19', '08/20'],
+            datasets: [{
+              label: '삼성전자 시세',
+              data: [75500, 76100, 77200, 80200, 78300, 78900],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                // beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+
+    </div>
+    
+</div>
