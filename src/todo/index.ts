@@ -1,12 +1,13 @@
+// index.ts
 import $ from "./element";
 import { renderFilterList, renderInitTodoList } from "./todos";
-
 renderInitTodoList();
 
 (() => {
+
   $.filterGroup?.addEventListener("click", (e) => {
     const $target = e.target as HTMLElement;
-
+    console.log(e);
     const button = $target.closest("button");
 
     if (button) {

@@ -1,3 +1,4 @@
+// constants.ts
 export const STORAGE_KEY = {
   /** 할일 목록 */
   TODOS: "todos",
@@ -8,3 +9,9 @@ export const STORAGE_KEY = {
   /** MAP TODO */
   MAP_TODO: "mapTodo",
 } as const;
+
+export const TODO_STATE ={
+  STATE : "all"
+};
+
+

@@ -3,21 +3,21 @@ export type getWeatherForecastRequestParams = {
     lat: number;
     /** 경도 */
     lon: number;
-  };
-  
-  export type getWeatherForecastRequestPath = {};
-  
-  export type getWeatherForecastRequestBody = {};
-  
+};
+
+    export type getWeatherForecastRequestPath = {};
+    
+    export type getWeatherForecastRequestBody = {};
+
   /** 일기 예보 조회 요청 */
-  export type getWeatherForecastRequest = {
-    params: getWeatherForecastRequestParams;
-    path?: getWeatherForecastRequestPath;
-    body?: getWeatherForecastRequestBody;
-  };
-  
-  /** 일기 예보 조회 응답 */
-  export type getWeatherForecastResponse = {
+    export type getWeatherForecastRequest = {
+        params: getWeatherForecastRequestParams;
+        path?: getWeatherForecastRequestPath;
+        body?: getWeatherForecastRequestBody;
+    };
+
+    /** 일기 예보 조회 응답 */
+    export type getWeatherForecastResponse = {
     /**  */
     cod: number;
     /** 메세지 */
