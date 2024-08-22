@@ -42,6 +42,14 @@ input {
     color: #fff;
 }
 
-.stock_chart{
-    margin: 80px;
+#chart-container{
+    position: relative;
+    // width: 600px;
+    // height: 400px;
+}
+
+#base-chart, #overlay-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
