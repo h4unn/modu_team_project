@@ -16,6 +16,15 @@ export default {
   },
   server: {
     port: 3000,
+    proxy: {
+      // "/api": {
+      //   target: "https://apis.data.go.kr",
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, ""),
+      //   secure: false,
+      //   ws: true,
+      // },
+    },
   },
   plugins: [
     injectHTML(),
