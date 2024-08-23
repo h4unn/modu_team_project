@@ -74,11 +74,6 @@ async function fetchStockData() {
 fetchStockData();
 
 
-
-
-
-
-
 /** 차트 */
 const baseCtx = (
   document.getElementById("base-chart") as HTMLCanvasElement

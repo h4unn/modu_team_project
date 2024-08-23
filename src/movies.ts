@@ -1,9 +1,29 @@
 import "./main";
 import "./styles/movie.scss";
 import { MovieListService, IMG_URL } from "./service/movies.service";
+import { getPopupData } from "./@type/movies.type";
 import $ from "./moviesElements";
 
 const movieListService = new MovieListService();
+const IMGS_URL = 'https://image.tmdb.org/t/p/w1280';
+
+function createPopup(data:getPopupData){
+  const {adult, backdrop_path, overview,title, original_title, vote_count,popularity,vote_average} = data;
+  $.movieDialog?.querySelector('img')?.setAttribute('src',`${IMGS_URL + backdrop_path}`);
+  if(!$.movieTit || !$.movieOriginTit || !$.movieDesc || !$.movieLike || !$.movieAudience || !$.movieGrade) return;
+  $.movieTit.innerHTML = title;
+  $.movieOriginTit.innerHTML = original_title;
+  $.movieDesc.innerHTML = overview;
+  $.movieLike.innerHTML = vote_count.toString();
+  $.movieAudience.innerHTML = popularity.toString();
+  $.movieGrade.innerHTML = vote_average.toString();
+
+  $.movieDialog?.showModal();
+
+  $.movieDialog?.querySelector('.close')?.addEventListener('click',()=>{
+    $.movieDialog?.close();
+  });
+}
 
 
 async function renderNowPlaying() {
@@ -22,6 +42,7 @@ async function renderNowPlaying() {
       sort_by: "vote_count.desc",
     },
   });
+  
 
   voteCountData.results.slice(0, maxImages).forEach((movie) => {
     const $movieLi = document.createElement("li");
@@ -48,6 +69,11 @@ async function renderNowPlaying() {
     // $movieLi.append($img, $box);
     $movieLi.appendChild($img);
     $.movieContainer?.appendChild($movieLi);
+    
+    $movieLi?.addEventListener('click',() => {
+      const $dialog = document.createElement('dialog');
+      createPopup(movie);
+    });
   });
 }
 
