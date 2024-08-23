@@ -21,7 +21,7 @@ section:nth-child(odd) {
 // 전체영역 inner
 #weather-wrap .inner {
   margin: 0 auto;
-  max-width: calc(100% - 30px);
+  max-width: 1280px; //calc(100% - 30px);
   width: 100%;
 }
 
@@ -141,10 +141,17 @@ section.region-weather-content {
  }
 
  .region-weather-content h3 {
-  flex-basis: 70%;
+  flex-basis: 80%;
   color: var(--txt);
   font-weight: 500;
 
+ }
+
+ .region-title-list {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-basis: 20%;
  }
 
  .region-weather-content img {
