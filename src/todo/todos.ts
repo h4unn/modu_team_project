@@ -28,9 +28,6 @@ export function renderTodoList(todos: Todo[], entity?: Todo[]) {
   const importList = entity ? entity.filter((todo) => todo.label === '중요한일').length : todos.filter((todo) => todo.label === '중요한일').length;
   const studyList = entity ? entity.filter((todo) => todo.label === '공부').length : todos.filter((todo) => todo.label === '공부').length;
   const pormiseLise = entity ? entity.filter((todo) => todo.label === '약속').length : todos.filter((todo) => todo.label === '약속').length;
-  // const importList = todos.filter((todo) => todo.label === '중요한일').length;
-  // const studyList = todos.filter((todo) => todo.label === '공부').length;
-  // const pormiseLise = todos.filter((todo) => todo.label === '약속').length;
 
   const $filterCompleteCount = $.filterCompletedButton?.querySelector(".count");
   const $filterCreatedCount = $.filterCreatedButton?.querySelector(".count");

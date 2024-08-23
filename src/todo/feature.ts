@@ -15,12 +15,8 @@ export const handleSubmit = (e: SubmitEvent) => {
 
   const newTodo = new Todo({ content: value , label:labels});
   state.todos.push(newTodo);
-  state.mapTodo.set(newTodo.id, newTodo);
-
   const stringState = JSON.stringify(state);
-
   localStorage.setItem(STORAGE_KEY.STATE, stringState);
-
   renderInitTodoList();
 };
 
