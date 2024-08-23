@@ -44,12 +44,6 @@ input {
 
 #chart-container{
     position: relative;
-    // width: 600px;
-    // height: 400px;
-}
-
-#base-chart, #overlay-chart {
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin: 20px;
+    max-width: 100%;
 }
