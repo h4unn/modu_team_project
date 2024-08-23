@@ -3,6 +3,7 @@ import "./styles/weather.scss";
 
 import { WeatherService } from "./service/weather.service";
 
+
 const weatherService = new WeatherService();
 
 /** 주요도시 위경도 */
@@ -16,16 +17,20 @@ const citiesCoordinates: Record<string,{ lat: number, lon: number, nameKo: strin
   // Gwangju: { lat: 35.126033, lon: 126.831302 }, 위경도가 맞지 않음
 };
 
-const state = { lat: 0, lon: 0 };
+//기준 위경도 서울로 설정
+const state = {
+  lat: citiesCoordinates.Seoul.lat,
+  lon: citiesCoordinates.Seoul.lon
+};
 
 /** 유저의 위치정보를 갱신해주는 함수 */
 const updateLocation = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition((position) => {
       state.lat = position.coords.latitude;
       state.lon = position.coords.longitude;
       resolve(position.coords);
-    });
+    },error => reject(error));
   });
 };
 
@@ -93,7 +98,7 @@ const updateRegionWeatherUI = (cityKey: string, regionWeatherData:WeatherData): 
 
 const showRegionWeatherDetails = (cityKey: string, regionWeatherData: WeatherData): void => {
   const $detailsTitle = document.querySelector('.region-title') as HTMLElement;
-  const $detailsTemp = document.querySelector('.weather-num') as HTMLElement;
+  const $detailsTemp = document.querySelector('.region-num') as HTMLElement;
   const $detailsHumidity = document.querySelector('.region-weather-list')!.querySelectorAll('li')[0] as HTMLElement;
   const $detailsMaxTemp = document.querySelector('.region-weather-list')!.querySelectorAll('li')[1] as HTMLElement;
   const $detailsMinTemp = document.querySelector('.region-weather-list')!.querySelectorAll('li')[2] as HTMLElement;
@@ -112,8 +117,10 @@ const showRegionWeatherDetails = (cityKey: string, regionWeatherData: WeatherDat
 
 
 const initWeather = async (): Promise<void> => {
-  try {
-    await updateLocation();
+  try { 
+    try { 
+      await updateLocation()
+      } catch(error) {console.error("Failed to update location", error)};
 
     const currentWeatherData = await weatherService.getCurrentWeather({
       params: {
@@ -141,4 +148,5 @@ const initWeather = async (): Promise<void> => {
 };
 
 document.addEventListener('DOMContentLoaded', initWeather);
+
 

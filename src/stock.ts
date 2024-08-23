@@ -157,7 +157,6 @@ async function fetchStockData(stockCode: string) {
   
 }
 
-
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 
