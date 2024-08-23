@@ -1,9 +1,7 @@
 @import "_reset";
 @import './todo.scss';
-
-
-
-
+@import './movie.scss';
+// @import './stock.scss';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
 
 
@@ -31,6 +29,14 @@ section:nth-child(even) {
   max-width: calc(100% - 30px);
   width: 100%;
 }
+
+// 섹션 타이틀, 화살표
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  color: #494A50;
+}
+
 
 
 // <!-- 홈 날씨 영역 시작 -->
@@ -107,12 +113,34 @@ section#home-weather {
 
 
 // <!-- 홈 영화 영역 시작 -->
-.list-header {
-  display: flex;
-  justify-content: space-between;
-  color: #494A50;
+
+.movie-slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+
 }
 
+.movie-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+.movie-container > li,
+.movie-container-2 > li,
+.movie-container-3 > li {
+  height: 300px;
+}
+
+.movie-container > li > img,
+.movie-container-2 > li > img,
+.movie-container-3 > li > img {
+  // position: relative;
+  // max-height: 60%;
+  width: 100%;
+  height: 100%;
+  // background-color: red;
+}
 
 // <!-- 홈 영화 영역 끝 -->
 
@@ -122,8 +150,20 @@ section#home-weather {
 
 .stock_div {
   padding-top: 25px;
+  margin: 0 auto;
 }
 
+#chart-container{
+  position: relative;
+  // width: 600px;
+  // height: 400px;
+}
+
+#base-chart, #overlay-chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 //  <!-- 홈 주식 영역 끝 -->
 
 
