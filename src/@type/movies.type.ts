@@ -159,3 +159,34 @@ export type getMoviesGenreResponse = {
     name: string;
   }>;
 };
+
+export type getPopupData  = { 
+  /** 성인 컨텐츠 포함 여부 */
+  adult: false;
+  /** 배경이미지 경로 */
+   backdrop_path: string;
+  /** 장르 ID 목록 */
+   genre_ids: Array<number>;
+  /** 영화 ID */
+   id: number;
+  /** 원작 언어 */  
+   original_language: string;
+  /** 원작 제목 */
+   original_title: string;
+  /** 줄거리 내용 */
+   overview: string;
+  /** 인기도 */
+   popularity: number;
+  /** 포스터 이미지 경로 */
+   poster_path: string;
+   /** 개봉일 */
+   release_date: string;
+   /** 제목 */
+   title: string;
+   /** 비디오 포함 여부 */
+   video: boolean;
+   /** 평점 */
+   vote_average: number;
+   /** 투표 수 */
+   vote_count: number;
+}
