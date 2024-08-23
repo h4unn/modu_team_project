@@ -16,7 +16,7 @@ export type MoviesRequestParams = {
 };
 
 
-/** 평점순 영화 목록 조회 - getVoteCountRequestParams */
+/** 영화 리뷰 순위 조회 - getVoteCountRequestParams */
 export type getVoteCountMoviesRequestParams = MoviesRequestParams;
 
 /** 현재 상영작 조회 요청 - getNowPlayingMoviesRequestParams */
@@ -42,7 +42,7 @@ export type getMoviesGenreRequestParams = {
 
 
 
-/** 평점순 영화 목록 조회 path,body */
+/** 영화 리뷰 순위 조회 path,body */
 export type getVoteCountMoviesRequestPath = {};
 export type getVoteCountMoviesRequestBody = {};
 
@@ -64,7 +64,7 @@ export type getMoviesGenreRequestBody = {};
 
 
 
-// 평점순 영화 목록 조회 //
+// 영화 리뷰 순위 조회 //
 export type getVoteCountMoviesRequest = {
   params: getVoteCountMoviesRequestParams;
   path?: getVoteCountMoviesRequestPath;
@@ -142,7 +142,7 @@ export type MoviesResponse = {
 
 
 
-/** 평점순 영화 목록 조회 - getVoteCountRequestParams */
+/** 영화 리뷰 순위 조회 - getVoteCountRequestParams */
 export type getVoteCountMoviesResponse = MoviesResponse;
 
 /** 현재 상영작 조회 응답 - getNowPlayingMoviesResponse */

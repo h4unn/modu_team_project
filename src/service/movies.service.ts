@@ -21,7 +21,7 @@ export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export class MovieListService {
   
-    /** 평점순 영화 목록 조회 */
+    /** 영화 리뷰 순위 조회 */
     async getVoteCountMovies (req: getVoteCountMoviesRequest) {
       const url = new URL(`${HOST_URL}/3/discover/movie`);
   
