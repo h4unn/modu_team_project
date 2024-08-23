@@ -3,7 +3,7 @@ import {
     getStockResponse,
   } from "../@type/stock.type";
 
-const API_KEY = "3zfq3yDcxo4Aihc0rmj6Z%2FtGXcoPpZlZacVn0tFisfDouPFeLjUecsxIz%2FKed9Zu5CknX3cBis3FeRtrA%2FV2AA%3D%3D";
+const API_KEY = "3zfq3yDcxo4Aihc0rmj6Z/tGXcoPpZlZacVn0tFisfDouPFeLjUecsxIz/Ked9Zu5CknX3cBis3FeRtrA/V2AA==";
 
 export class StockService {
     

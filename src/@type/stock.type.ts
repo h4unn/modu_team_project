@@ -1,17 +1,17 @@
 /**  요청 파라미터 */
 export type getStockRequestParams = {
     /** API_KEY */
-    // serviceKey: string;
+    serviceKey: string;
     /** 한 페이지 결과 수 */
     numOfRows?: number;
     /** 페이지 번호 */
     pageNo?: number;
     /** 결과 형식 */
-    resultType?: string;
+    resultType: string;
     /** 기준 일자 */
     basDt?: number;
     /** ISIN코드가 검색값을 포함하는 데이터 검색 */
-    likeIsinCd: number;
+    likeSrtnCd: string;
   };
   
   export type getStockRequestPath = {};
