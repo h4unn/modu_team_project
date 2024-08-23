@@ -3,6 +3,8 @@ export type getCurrentWeatherRequestParams = {
     lat: number;
     /** 경도 */
     lon: number;
+    /** 언어 */
+    lang?: string;
   };
   
   export type getCurrentWeatherRequestPath = {};
