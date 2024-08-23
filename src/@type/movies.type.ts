@@ -1,4 +1,5 @@
 
+
 /**  영화 요청 공통 파라미터 (현재상영작,개봉예정작 요청파라미터가 같아서 하나로 정의) */
 export type MoviesRequestParams = {
   /** 성인 컨텐츠 포함 여부 */
@@ -14,21 +15,61 @@ export type MoviesRequestParams = {
 
 };
 
-/** 현재 상영작 요청 - getNowPlayingMoviesRequestParams */
+
+/** 평점순 영화 목록 조회 - getVoteCountRequestParams */
+export type getVoteCountMoviesRequestParams = MoviesRequestParams;
+
+/** 현재 상영작 조회 요청 - getNowPlayingMoviesRequestParams */
 export type getNowPlayingMoviesRequestParams = MoviesRequestParams;
-/** 개봉 예정작 요청 - getUpcomingMoviesRequestParams */
-export type getUpcomingMoviesRequestParams = MoviesRequestParams;
+
+/** 개봉 예정작 조회 요청 - getUpcomingMoviesRequestParams */
+export type getUpcomingMoviesRequestParams = MoviesRequestParams & {
+  /** 개봉 예정일 필터 (YYYY-MM-DD 형식/ min_date) */
+  'release_date.gte'?: string;
+  /** 개봉 예정일 필터 (YYYY-MM-DD 형식/ max_date) */
+  'release_date.lte'?: string;
+};
 
 
-/** 현재 상영작 요청 path,body */
+
+/** 영화 장르 조회 요청 - getMoviesGenreRequestParams */
+export type getMoviesGenreRequestParams = {
+  /** 응답 받을 언어 */
+  language?: string;
+}
+
+
+
+
+
+/** 평점순 영화 목록 조회 path,body */
+export type getVoteCountMoviesRequestPath = {};
+export type getVoteCountMoviesRequestBody = {};
+
+/** 현재 상영작 조회 요청 path,body */
 export type getNowPlayingMoviesRequestPath = {};
 export type getNowPlayingMoviesRequestBody = {};
 
-/** 개봉 예정작 요청 path,body */
+
+
+/** 개봉 예정작 조회 요청 path,body */
 export type getUpcomingMoviesRequestPath = {};
 export type getUpcomingMoviesRequestBody = {};
 
+/**  영화 장르 조회 요청 path,body */
+export type getMoviesGenreRequestPath = {};
+export type getMoviesGenreRequestBody = {};
 
+
+
+
+
+// 평점순 영화 목록 조회 //
+export type getVoteCountMoviesRequest = {
+  params: getVoteCountMoviesRequestParams;
+  path?: getVoteCountMoviesRequestPath;
+  body?: getVoteCountMoviesRequestBody;
+};
 
 // 현재 상영작 조회 요청 //
 export type getNowPlayingMoviesRequest = {
@@ -37,11 +78,20 @@ export type getNowPlayingMoviesRequest = {
   body?: getNowPlayingMoviesRequestBody;
 };
 
+
 // 개봉 예정작 조회 요청 //
 export type getUpcomingMoviesRequest = {
   params: getUpcomingMoviesRequestParams;
   path?: getUpcomingMoviesRequestPath;
   body?: getUpcomingMoviesRequestBody;
+};
+
+
+// 영화 장르 조회 요청 //
+export type getMoviesGenreRequest = {
+  params: getMoviesGenreRequestParams;
+  path?: getMoviesGenreRequestPath;
+  body?: getMoviesGenreRequestBody;
 };
 
 
@@ -79,6 +129,10 @@ export type MoviesResponse = {
       vote_average: number;
       /** 투표 수 */
       vote_count: number;
+      /** 개봉 예정일 필터 (YYYY-MM-DD 형식/ min_date) */
+      'release_date.gte': string;
+      /** 개봉 예정일 필터 (YYYY-MM-DD 형식/ max_date) */
+      'release_date.lte': string;
   }>;
   /** 총 페이지 수  */
   total_pages: number;
@@ -86,9 +140,22 @@ export type MoviesResponse = {
   total_results: number;
 };
 
-/** 현재 상영작 응답 - getNowPlayingMoviesResponse */
+
+
+/** 평점순 영화 목록 조회 - getVoteCountRequestParams */
+export type getVoteCountMoviesResponse = MoviesResponse;
+
+/** 현재 상영작 조회 응답 - getNowPlayingMoviesResponse */
 export type getNowPlayingMoviesResponse = MoviesResponse;
-/** 개봉 예정작 응답 - getUpcomingMoviesResponse */
+
+/** 개봉 예정작 조회 응답 - getUpcomingMoviesResponse */
 export type getUpcomingMoviesResponse = MoviesResponse;
 
 
+/** 영화 장르 조회 응답 - getUpcomingMoviesResponse */
+export type getMoviesGenreResponse = {
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+};
