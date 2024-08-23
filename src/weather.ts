@@ -82,13 +82,11 @@ const updateRegionWeatherUI = (cityKey: string, regionWeatherData:WeatherData): 
 
     // 지역 날씨 상세 정보를 표시하는 함수 호출
     showRegionWeatherDetails(cityKey, regionWeatherData);
-  });
 
-  // // 페이지를 가장 아래로 스크롤
-  // window.scrollTo({
-  //   top: document.body.scrollHeight,
-  //   behavior: 'smooth'
-  // });
+    // 상세 정보가 표시된 후 페이지를 가장 아래로 스크롤
+    const $detailsSection = document.querySelector('.region-weather-content') as HTMLElement;
+    $detailsSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
 
   $listElement.appendChild($listItem);
 };
