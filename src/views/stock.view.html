@@ -2,16 +2,14 @@
     
     <!-- 종목코드 입력 폼 -->
     <form action="">
-        <input type="text" name="stock_code" placeholder="종목코드를 입력하세요.">
-        <button type="button">조회</button>
+        <input type="text" id="stock_code" placeholder="종목코드를 입력하세요.">
+        <button type="button" id="stock-button">조회</button>
     </form>    
 
 
     <!-- 차트 그리기 -->
-    <!-- 입력값에 따라 값 변경, 그래프 좀 더 이쁘게 그리는 법 찾기 -->
     <div id="chart-container">
       <canvas id="base-chart"></canvas>
-      <canvas id="overlay-chart"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

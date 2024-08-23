@@ -1,6 +1,6 @@
 import { getStockRequest, getStockResponse } from "../@type/stock.type";
 
-const API_KEY = "3zfq3yDcxo4Aihc0rmj6Z/tGXcoPpZlZacVn0tFisfDouPFeLjUecsxIz/Ked9Zu5CknX3cBis3FeRtrA/V2AA==";
+const API_KEY = "mmgLc5RFMR2pSLYDzJG4hjwJ3YhhENLjNNLB8gydDWy7v8vWYsFV7STq42VHvIZWnbumP3L6Qrts6y/iG9p4zA==";
 
 export class StockService {
   /** 주식 조회 */
@@ -10,12 +10,25 @@ export class StockService {
       `https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo`
     );
 
+    // Object.entries({
+    //   ...params,
+    //   serviceKey: decodeURIComponent(API_KEY),
+    // }).forEach(([key, value]) => {
+    //   // url.searchParams.append(key, value.toString());
+    //   url.searchParams.append(key, value.toString());
+    // });
+
     Object.entries({
       ...params,
       serviceKey: decodeURIComponent(API_KEY),
     }).forEach(([key, value]) => {
-      url.searchParams.append(key, value.toString());
+      // value가 null 또는 undefined인 경우 빈 문자열로 처리
+      if (value !== null && value !== undefined) {
+        url.searchParams.append(key, value.toString());
+      }
     });
+
+
     const res = await fetch(url);
 
     const data = (await res.json()) as getStockResponse;
