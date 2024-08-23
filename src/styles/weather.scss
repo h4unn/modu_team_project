@@ -48,18 +48,18 @@ section.current-weather {
 // 날씨 아이콘 이미지
 .current-weather img {
   width: 100%;
-  max-width: 128px;
+  max-width: 150px;
 }
 
 // 날씨 설명 - light rain
 .weather-des {
-  display: block;
-  font-weight: 400;
-  color: #8F9098;
+  // display: block;
+  // font-weight: 400;
+  // color: #8F9098;
 
   // 한글일 때! font family, size 적용
-  // font-family: 'Noto Sans KR', sans-serif;
-  // font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
 }
 
 // 현재 기온

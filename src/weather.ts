@@ -3,6 +3,7 @@ import "./styles/weather.scss";
 
 import { WeatherService } from "./service/weather.service";
 
+
 const weatherService = new WeatherService();
 
 /** 주요도시 위경도 */
@@ -147,4 +148,5 @@ const initWeather = async (): Promise<void> => {
 };
 
 document.addEventListener('DOMContentLoaded', initWeather);
+
 
