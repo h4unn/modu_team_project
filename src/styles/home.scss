@@ -1,1 +1,133 @@
 @import "_reset";
+@import './todo.scss';
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
+
+
+
+:root {
+  --wtcolor: #fff;
+  --light: #B3DAFF;
+  --main: #55A4FF;
+  --dark: #0083FF;
+  --txt: #080909;
+}
+
+section {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+section:nth-child(even) {
+  margin: 30px 0;
+}
+
+// 전체영역 inner
+#home-wrap .inner {
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: calc(100% - 30px);
+  width: 100%;
+}
+
+
+// <!-- 홈 날씨 영역 시작 -->
+section#home-weather {
+  padding: 20px 25px;
+  text-align: left;
+  background-color: var(--wtcolor);
+  border-radius: 12px;
+  color: var(--txt);
+  box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+
+  outline: 1px solid var(--main);
+}
+
+
+.home-weather-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.home-weather-top i {
+  font-size: 70px;
+}
+
+.home-weather-content {
+  text-align: left;
+  padding-left: 35px;
+}
+
+.weather-num,.weather-des {
+ font-size: 23px;
+}
+
+.home-weather-top .current-weather-list {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 5px;
+ justify-content: flex-start;
+ padding-top: 15px;
+ font-size: 14px;
+ color: #494A50;
+}
+
+
+.home-weather-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
+.home-weather-bottom > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.now-location {
+  font-size: 14px;
+  color: var(--main);
+}
+
+.now-location i {
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+// <!-- 홈 날씨 영역 끝 -->
+
+
+// <!-- 홈 영화 영역 시작 -->
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  color: #494A50;
+}
+
+
+// <!-- 홈 영화 영역 끝 -->
+
+
+
+//  <!-- 홈 주식 영역 시작 -->
+
+.stock_div {
+  padding-top: 25px;
+}
+
+//  <!-- 홈 주식 영역 끝 -->
+
+
+
+//     <!-- 홈 투두 영역 시작 -->
+
+//     <!-- 홈 투두 영역 끝 -->

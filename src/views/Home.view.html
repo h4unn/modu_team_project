@@ -1,3 +1,132 @@
-<div>날씨 출력</div>
-<div>영화 출력</div>
-<div>할일 출력</div>
+
+<div id="home-wrap">
+  <div class="inner">
+    <!-- 홈 날씨 영역 시작 -->
+    <section id="home-weather">
+      <h3>오늘 날씨</h3>
+      <div class="home-weather-top">
+        <!-- 날씨 아이콘 -->
+        <!-- 마크업용 날씨 아이콘 -->
+        <i class="fa-solid fa-cloud-rain"></i>
+        <!-- <img src="../../src/images/sun-cloud.png" alt="Weather Icon" /> -->
+
+        <div class="home-weather-content">
+          <!-- 기온 -->
+          <strong class="weather-num">30&deg;</strong>
+          <!-- 날씨상태 : 맑음, 흐림 etc **  -->
+          <b class="weather-des">맑음</b>
+          
+          <ul class="current-weather-list">
+            <!-- 최고기온 -->
+            <li>최고기온&nbsp;--&deg;</li>
+             <!-- 최저기온 -->
+            <li>최저기온&nbsp;--&deg;</li>
+            <!-- 그냥 미세먼지로 넣었는데 아무거나 넣으셔도 됩니당,, -->
+            <li>미세먼지&nbsp;--&#37;</li>
+            <li>초미세먼지&nbsp;--&#37;</li>
+          </ul>
+        </div>
+      </div>
+
+        <ul class="home-weather-bottom">
+          <!-- 최고기온 -->
+          <li>서울&nbsp;<b>--&deg;</b></li>
+           <!-- 최저기온 -->
+          <li>인천&nbsp;<b>--&deg;</b></li>
+          <!-- 그냥 미세먼지로 넣었는데 아무거나 넣으셔도 됩니당,, -->
+          <li>대구&nbsp;<b>--&deg;</b></li>
+          <li>부산&nbsp;<b>--&deg;</b></li>
+        </ul>
+  
+        <div class="now-location">
+          <i class="fa-solid fa-location-dot"></i>
+          현재위치----------
+        </div>
+    </section>
+    <!-- 홈 날씨 영역 끝 -->
+
+
+    <!-- 홈 영화 영역 시작 -->
+    <section id="home-movie">
+      <div class="list-header">
+        <h4>영화</h4>
+        <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
+     </div>
+    <div class="movie-slider">
+        <ul class="movie-container-2">
+        <!-- 현재 상영작 리스트 동적추가 -->
+             
+        </ul>
+    </div>
+    </section>
+    <!-- 홈 영화 영역 끝 -->
+
+    <!-- 홈 주식 영역 시작 -->
+    <section id="home-stock">
+      <div class="list-header">
+        <h4>주식</h4>
+        <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
+     </div>
+
+      <!-- 주식 차트  -->
+      <div class="stock_div">
+        <div id="chart-container">
+          <canvas id="base-chart"></canvas>
+          <canvas id="overlay-chart"></canvas>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../stock.ts"></script>     
+      </div>
+    </section>
+    <!-- 홈 주식 영역 끝 -->
+
+    <!-- 홈 투두 영역 시작 -->
+    <section id="home-todo">
+      <div class="list-header">
+        <h4>ToDO</h4>
+        <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
+      </div>
+
+           <div class="top">
+            <form id="input-form">
+      
+               <!-- todo 라벨 시작 (중요한 일, 공부, 약속) -->
+               <div class="todo_labels">
+                  <ul class="todo_labels_list">
+                     <li>
+                        <input type="radio" name="todo_label" id="todo_import" data-state="import" value="중요한일" checked/>
+                        <label for="todo_import">중요한일</label>
+                     </li>
+                     <li>
+                        <input type="radio" name="todo_label" id="todo_study" data-state="study" value="공부"/>
+                        <label for="todo_study">공부</label>
+                     </li>
+                     <li>
+                        <input type="radio" name="todo_label" id="todo_reserve" data-state="promise" value="약속"/>
+                        <label for="todo_reserve">약속</label>
+                     </li>
+            
+                  </ul>
+               </div>
+                <!-- todo 라벨 끝-->
+
+               <!-- 할 일 등록 버튼 시작 -->
+               <div class="user_form">
+                  <input type="text" class="text-input" name="todo" id="todo" placeholder="할일을 입력하세요."/>
+                  <button id="add-btn">
+                     <span>추가</span>
+                     <i class="fa-solid fa-circle-plus"></i>
+                  </button>   
+               </div>
+                 <!-- 할 일 등록 버튼 끝 -->
+            </form>
+         </div>
+
+    </section>
+    <!-- 홈 투두 영역 끝 -->
+  </div>
+
+</div>
+
+
