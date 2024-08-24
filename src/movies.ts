@@ -54,19 +54,7 @@ async function renderNowPlaying() {
     $img.alt = movie.title;
     $img.dataset.id = movie.id.toString();
 
-    // const $box = document.createElement("ul");
-    // $box.className = "box";
-    // const $title = document.createElement("li");
-    // $title.className = "title";
-    // $title.textContent = movie.title;
-    // const $details = document.createElement("li");
-    // const $detailButton = document.createElement("button");
-    // $detailButton.type = "button";
-    // $detailButton.textContent = "자세히 보기";
-    // $details.append($detailButton);
-    // $box.append($title, $details);
 
-    // $movieLi.append($img, $box);
     $movieLi.appendChild($img);
     $.movieContainer?.appendChild($movieLi);
     

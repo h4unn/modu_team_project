@@ -4,6 +4,7 @@ import $ from "./todo/element";
 import { TODO_STATE } from "./todo/constants";
 import { renderFilterList, renderInitTodoList } from "./todo/todos";
 
+
 (() => {
    renderInitTodoList();
    $.filterGroup?.addEventListener("click", (e) => {
@@ -32,3 +33,5 @@ import { renderFilterList, renderInitTodoList } from "./todo/todos";
       }
    });
 })();
+
+
