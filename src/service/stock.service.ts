@@ -1,5 +1,6 @@
 import { getStockRequest, getStockResponse } from "../@type/stock.type";
 
+// const API_KEY = "Aw/vVGACO2Mz39KjA9aMfOslnFkOJssnveVp0SkeK+Svru1wPZCiRMvNew9FjJkJ+rL7B2GOH6WxBCSkG7QWBQ==";
 const API_KEY = "mmgLc5RFMR2pSLYDzJG4hjwJ3YhhENLjNNLB8gydDWy7v8vWYsFV7STq42VHvIZWnbumP3L6Qrts6y/iG9p4zA==";
 
 export class StockService {
@@ -10,13 +11,6 @@ export class StockService {
       `https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo`
     );
 
-    // Object.entries({
-    //   ...params,
-    //   serviceKey: decodeURIComponent(API_KEY),
-    // }).forEach(([key, value]) => {
-    //   // url.searchParams.append(key, value.toString());
-    //   url.searchParams.append(key, value.toString());
-    // });
 
     Object.entries({
       ...params,

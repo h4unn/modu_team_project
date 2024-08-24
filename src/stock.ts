@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 import { StockService } from "./service/stock.service.ts"
 import { getStockRequest, getStockResponse } from './@type/stock.type.ts';
 
-
 // 날짜 받기
 
 // 공휴일
@@ -12,10 +11,10 @@ const holidays = ['2024-01-01', '2024-08-15', '2024-09-16','2024-09-17','2024-09
 
 // 오늘 날짜
 const today = dayjs();
-const yesterday = today.subtract(2, 'day');
+const yesterday = today.subtract(3, 'day');
 
 // 주말과 공휴일을 제외하고 오늘부터 일주일 전까지의 날짜를 담을 배열
-const dates = [];
+const dates: string[]=[];
 let currentDay = yesterday;
 
 while (dates.length < 30) {  // 30일치 영업일을 얻을 때까지 반복
@@ -31,8 +30,8 @@ while (dates.length < 30) {  // 30일치 영업일을 얻을 때까지 반복
   currentDay = currentDay.subtract(1, 'day');
 }
 
-// dates 배열 출력
-console.log(dates);
+// 날짜 담는 변수는 이상 없음
+// console.log(dates)
 
 
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
@@ -42,11 +41,12 @@ console.log(dates);
 
 const stockInput = document.getElementById('stock_code') as HTMLInputElement;
 const stockButton = document.getElementById('stock-button') as HTMLButtonElement;
-let defaultStockCode = '005930'
+let defaultStockCode = '005930';
+let stock_info = document.getElementById('stock_info') as HTMLElement;
 
 stockButton.addEventListener('click', async()=>{
   let stockCode = stockInput.value.trim();
-
+  
   // 주식 코드가 숫자 6자리인지 검증
   const stockCodePattern = /^\d{6}$/; // 숫자 6자리 패턴 정규식
 
@@ -60,8 +60,13 @@ stockButton.addEventListener('click', async()=>{
   } 
   else {
         defaultStockCode = stockCode;
+
+        // Input에 입력하는대로 반영됨
+        // console.log(stockCode)
+
         await fetchStockData(defaultStockCode);
   }
+
 
 })
 
@@ -69,9 +74,76 @@ stockButton.addEventListener('click', async()=>{
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 
+// 버튼 입력한 값 가져오기
+
+const button_1 = document.getElementById('stock_1') as HTMLButtonElement;
+button_1.addEventListener('click', async ()=>{
+  defaultStockCode="005930"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_2 = document.getElementById('stock_2') as HTMLButtonElement;
+button_2.addEventListener('click', async ()=>{
+  defaultStockCode="000660"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_3 = document.getElementById('stock_3') as HTMLButtonElement;
+button_3.addEventListener('click', async ()=>{
+  defaultStockCode="051910"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_4 = document.getElementById('stock_4') as HTMLButtonElement;
+button_4.addEventListener('click', async ()=>{
+  defaultStockCode="036570"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_5 = document.getElementById('stock_5') as HTMLButtonElement;
+button_5.addEventListener('click', async ()=>{
+  defaultStockCode="225570"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_6 = document.getElementById('stock_6') as HTMLButtonElement;
+button_6.addEventListener('click', async ()=>{
+  defaultStockCode="105560"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_7 = document.getElementById('stock_7') as HTMLButtonElement;
+button_7.addEventListener('click', async ()=>{
+  defaultStockCode="005490"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_8 = document.getElementById('stock_8') as HTMLButtonElement;
+button_8.addEventListener('click', async ()=>{
+  defaultStockCode="068270"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_9 = document.getElementById('stock_9') as HTMLButtonElement;
+button_9.addEventListener('click', async ()=>{
+  defaultStockCode="000880"
+  await fetchStockData(defaultStockCode); 
+})
+
+const button_10 = document.getElementById('stock_10') as HTMLButtonElement;
+button_10.addEventListener('click', async ()=>{
+  defaultStockCode="005380"
+  await fetchStockData(defaultStockCode); 
+})
+
+
+
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
 // API fetch
 
-let priceData: Promise<getStockResponse>[]= []
+let priceData: Promise<getStockResponse>[]= [];
 
 /** 종가 */
 let closingPrices: number[] = []; 
@@ -93,13 +165,9 @@ async function fetchStockData(stockCode: string) {
   
   const stockService = new StockService();
 
+  // 새로운 차트 부를 때마다 초기화
   priceData = [];
   closingPrices = [];
-//   stock_mrktCtg = [];
-//   stock_vs = [];
-//   stock_hipr = [];
-//   stock_lopr = [];
-//   stock_trqu = [];
   stockName = "";
 
 
@@ -107,82 +175,62 @@ async function fetchStockData(stockCode: string) {
   {
     const requestParams: getStockRequest = {
       params: {
-        // serviceKey: '',
-        numOfRows: 10,
-        pageNo: 1,
         resultType: 'json',
-        basDt: dates[i],
-        // likeIsinCd: stockCode,
-        likeIsinCd: stockCode,
+        basDt: parseInt(dates[i]),
+        likeSrtnCd: stockCode,
       },
     };    
 
+    // 여기서 값을 넣어주지 못하고 있음
+    // NORMAL SERVICE이지만 데이터가 비었음
     priceData.push(stockService.getStock(requestParams));
 
   }
 
   const stockData = await Promise.all(priceData);
+  // priceData가 비어서 당연히 stockData도 비어있음
+  // console.log(stockData)
 
-  stockName = stockData[0].response.body.items?.item[0].itmsNm;
-  console.log(stockName)
+  stockName = stockData[0].response.body.items.item[0].itmsNm;
 
   closingPrices = stockData.map(data => {
-    return parseInt(data.response.body.items?.item[0].clpr);
+    return data.response.body.items?.item[0].clpr;
   });
 
-//   stock_mrktCtg = stockData.map(data => {
-//     return data.response.body.items?.item[0].mrktCtg;
-//   });
+  stock_mrktCtg = stockData.map(data => {
+    return data.response.body.items?.item[0].mrktCtg;
+  });
 
-//   stock_vs = stockData.map(data => {
-//     return parseInt(data.response.body.items?.item[0].vs);
-//   });
+  stock_vs = stockData.map(data => {
+    return data.response.body.items?.item[0].vs;
+  });
 
-//   stock_hipr = stockData.map(data => {
-//     return parseInt(data.response.body.items?.item[0].hipr);
-//   });
+  stock_hipr = stockData.map(data => {
+    return data.response.body.items?.item[0].hipr;
+  });
 
-//   stock_lopr = stockData.map(data => {
-//     return parseInt(data.response.body.items?.item[0].lopr);
-//   });
+  stock_lopr = stockData.map(data => {
+    return data.response.body.items?.item[0].lopr;
+  });
 
-//   stock_trqu = stockData.map(data => {
-//     return parseInt(data.response.body.items?.item[0].trqu);
-//   });
-
-  console.log(closingPrices);
-  console.log(stockData);
+  stock_trqu = stockData.map(data => {
+    return data.response.body.items?.item[0].trqu;
+  });
 
   updateChart(dates, closingPrices, stockName);
+  stock_info.textContent = `${stockName} (${defaultStockCode}) 종가`;
   
 }
+
 
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 
 // 차트
 
-// let min_value = 1000000;
-
-// for(let i=0; i<30;i++)
-//     {
-//         if(min_value > closingPrices[i]) min_value = closingPrices[i];     
-//     }
-
-
-// let max_value = 0;
-
-// for(let i=0; i<30;i++)
-//     {
-//         if(max_value < closingPrices[i]) max_value = closingPrices[i];     
-//     }
-
-// console.log(min_value, max_value)
-
-
 function updateChart(dates: string[], closingPrices: number[], stockName: string) {
     
-    const baseCtx = document.getElementById('base-chart').getContext('2d');
+    const baseCtx = document.getElementById('base-chart');
     
     if (baseChart) {
         baseChart.destroy();
@@ -241,30 +289,47 @@ function updateChart(dates: string[], closingPrices: number[], stockName: string
                             size: 14,
                             weight: 'bold'
                         }
-                    }
+                    },
+                    display: false,
                 },
                 tooltip: {
                     callbacks: {
-                        // 사용자 정의 툴팁 텍스트
-                        label: function (context) {
-                            // let label = context.dataset.label || '';
-
+                        label: function (context: any) {
+                            const index = context.dataIndex;
+                            
+                            let date = context.label;
                             let value = context.parsed.y !== null ? context.parsed.y : '';
+                            let marketCategory = stock_mrktCtg[index];
+                            
+                            let change = stock_vs[index];
+
+                            let changeIcon = null;
+
+                            if(change>0) {changeIcon='↑'}
+                            else{changeIcon='↓'
+                              change*=-1
+                            }
+
+                            let highPrice = stock_hipr[index];
+                            let lowPrice = stock_lopr[index];
+                            let tradingVolume = stock_trqu[index];
+
                             return [
                                 ``,
                                 `종목명 : ${stockName}`,
-                                `날짜 : ${context.label}`,
+                                `날짜 : ${date}`,
                                 `종가 : ${value} 원`,
-                                // `시장구분 : ${stock_mrktCtg}`,
-                                // `등락률 : ${stock_vs}`,
-                                // `고가 : ${stock_hipr}`,
-                                // `저가 : ${stock_lopr}`,
-                                // `거래량 : ${stock_trqu}`,
+                                `시장구분 : ${marketCategory}`,
+                                `등락률 : ${changeIcon} ${change}`,
+                                `고가 : ${highPrice}`,
+                                `저가 : ${lowPrice}`,
+                                `거래량 : ${tradingVolume}`,
                             ];
                         },
-                    }
+                    },
                 }
-            },
+          },
+        
             scales: {
                 y: {
                     min: min_value,
@@ -274,7 +339,6 @@ function updateChart(dates: string[], closingPrices: number[], stockName: string
         }
     });
 }
-
 
 await fetchStockData(defaultStockCode);
 
