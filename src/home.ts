@@ -1,5 +1,7 @@
 import "./main";
 import "./styles/home.scss";
+import { homeWeather } from "./home-weather"; // home-weather.ts에서 homeWeather 가져오기
+
 
 // 클릭시 tab이동
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-Weather
+// Weather
 
-Stock
+document.addEventListener('DOMContentLoaded', homeWeather);
 
-Movies
+
+// Stock
+
+// Movies

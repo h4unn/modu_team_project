@@ -4,10 +4,10 @@ import "./styles/weather.scss";
 import { WeatherService } from "./service/weather.service";
 
 
-const weatherService = new WeatherService();
+export const weatherService = new WeatherService();
 
 /** 주요도시 위경도 */
-const citiesCoordinates: Record<string,{ lat: number, lon: number, nameKo: string }> = {
+export const citiesCoordinates: Record<string,{ lat: number, lon: number, nameKo: string }> = {
   Seoul: { lat: 37.5665, lon: 126.9780, nameKo:"서울" },
   Incheon: { lat: 37.4563, lon: 126.7052, nameKo:"인천" },
   Daejeon: { lat: 36.3504, lon: 127.3845, nameKo:"대전" },
@@ -18,13 +18,13 @@ const citiesCoordinates: Record<string,{ lat: number, lon: number, nameKo: strin
 };
 
 //기준 위경도 서울로 설정
-const state = {
+export const state = {
   lat: citiesCoordinates.Seoul.lat,
   lon: citiesCoordinates.Seoul.lon
 };
 
 /** 유저의 위치정보를 갱신해주는 함수 */
-const updateLocation = () => {
+export const updateLocation = () => {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition((position) => {
       state.lat = position.coords.latitude;
@@ -34,7 +34,7 @@ const updateLocation = () => {
   });
 };
 
-interface WeatherData {
+export interface WeatherData {
   city: string;
   temperature: number;
   humidity: number;
@@ -120,7 +120,7 @@ const initWeather = async (): Promise<void> => {
   try { 
     try { 
       await updateLocation()
-      } catch(error) {console.error("Failed to update location", error)};
+      } catch(error) {};
 
     const currentWeatherData = await weatherService.getCurrentWeather({
       params: {
@@ -142,9 +142,7 @@ const initWeather = async (): Promise<void> => {
     }
 
 
-  } catch (error) {
-    console.error("Failed to fetch weather data or update location", error);
-  }
+  } catch (error) {}
 };
 
 document.addEventListener('DOMContentLoaded', initWeather);
