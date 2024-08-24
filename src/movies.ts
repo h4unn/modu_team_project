@@ -71,7 +71,6 @@ async function renderNowPlaying() {
     $.movieContainer?.appendChild($movieLi);
     
     $movieLi?.addEventListener('click',() => {
-      const $dialog = document.createElement('dialog');
       createPopup(movie);
     });
   });
@@ -125,6 +124,9 @@ async function renderNowPlaying() {
     // $movieLi.append($img, $box);
     $movieLi.appendChild($img);
     $.movieContainer2?.appendChild($movieLi);
+    $movieLi?.addEventListener('click',() => {
+      createPopup(movie);
+    });
   });
 
 //----------------------------------------------------------------
@@ -159,6 +161,9 @@ async function renderNowPlaying() {
 
     $movieLi.appendChild($img);
     $.movieContainer3?.appendChild($movieLi);
+    $movieLi?.addEventListener('click',() => {
+      createPopup(movie);
+    });
   });
 
 
