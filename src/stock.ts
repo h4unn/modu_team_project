@@ -8,6 +8,7 @@ import { getStockRequest, getStockResponse } from './@type/stock.type.ts';
 
 // 공휴일
 const holidays = ['2024-01-01', '2024-08-15', '2024-09-16','2024-09-17','2024-09-18','2024-10-03','2024-10-09', '2024-12-25'];
+let chartResizing:any = null;
 
 // 오늘 날짜
 const today = dayjs();
@@ -343,5 +344,8 @@ function updateChart(dates: string[], closingPrices: number[], stockName: string
 await fetchStockData(defaultStockCode);
 
 window.addEventListener("resize",()=>{
-    fetchStockData(defaultStockCode);
-  });
+    clearTimeout(chartResizing);
+    chartResizing = setTimeout(() => {
+      fetchStockData(defaultStockCode);
+    },300); 
+});

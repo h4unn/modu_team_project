@@ -26,7 +26,7 @@ function createPopup(data:getPopupData){
 }
 
 
-async function renderNowPlaying() {
+async function renderNowPlaying() { // now movie
   // 영화 리뷰 순위 포스터 가져오기 //
   if (!$.movieContainer) return;
   $.movieContainer.innerHTML = "";
@@ -81,7 +81,6 @@ async function renderNowPlaying() {
       page: 1,
     },
   });
-  console.log("nowplayingdata", nowPlayingData);
 
   // 현재 상영작 포스터 가져오기 //
   if (!$.movieContainer2) return;
