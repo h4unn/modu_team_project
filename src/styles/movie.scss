@@ -4,6 +4,11 @@
   --text-color: #52a1ff;
 }
 
+#wrap {
+  height: calc(100vh - 60px);
+}
+
+
 
 .search-bar {
   margin: 10px 20px;
@@ -41,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 18px 0;
+  margin-top: 18px;
   h2 {
     font-size: 1rem;
   }
@@ -55,6 +60,8 @@ ul {
 
 .movie-slider ul{
   min-width:900px;
+
+
   display: flex;
   align-items: center;
   gap: 12px;
@@ -62,7 +69,8 @@ ul {
   
   & li { 
     cursor:pointer;
-    height:100%;
+    //  height: 440px;
+    min-height: 100%;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -79,34 +87,12 @@ ul {
       transition:.3s ease all;
       width:100%;
       height:100%;
+      max-height: 400px;
     }
   }
+
 }
 
-//-------- 현영님 html,css작업에서 필요 부분 수정 --------  //
-
-// #wrap {
-//     overflow-x: hidden;
-// }
-
-// .nav-section {
-//   width: 100%;
-//   overflow-x: auto;
-//   overflow-y: hidden;
-// }
-
-// .nav-section::-webkit-scrollbar {
-//   display: none;
-// }
-
-// .category > button {
-//   width: 115px;
-// }
-
-// .category > button.active {
-//   color: #f8f9fe;
-//   background-color: var(--text-color);
-// }
 
 .movie-slider {
   overflow-x: auto;
@@ -117,6 +103,11 @@ ul {
 .movie-slider::-webkit-scrollbar {
   display: none;
 }
+
+.movie-container {
+  
+}
+
 
 dialog{
   position:absolute;
@@ -180,7 +171,7 @@ dialog{
 @media(max-width:780px){ //mobile
   dialog{
     width:100%;
-    padding:1%;
+    padding:7%;
     & h3{
       font-size:2rem;
     }
@@ -191,14 +182,17 @@ dialog{
     }
     .movie_desc{
       font-size:1rem;
-      padding-bottom:1rem;
+      padding:1rem;
       text-overflow: ellipsis;
       max-height:220px;
-      overflow: hidden;
+      overflow-y: auto;
+    
     }
     .movie_vote{
       display: flex;
       gap:12px;
+      padding-top:1rem;
+      border-top: 1px solid #ccc;
       & .movie_like{
         & i{color:red; font-size:1rem;}
         & span{font-size:1rem;} 
@@ -212,4 +206,8 @@ dialog{
       cursor: pointer;
     }
   }
+}
+
+.BottomTab {
+  // position: fixed;
 }

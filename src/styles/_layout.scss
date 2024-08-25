@@ -13,6 +13,20 @@
   overflow: auto;
   padding:0 8px
 }
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.movie-slider
 #cont_wrapper{
   width:100%;
   & .inner{

@@ -7,8 +7,10 @@ import {homeRenderInit} from './todo/todos';
 
 // movies import
 import {  SMALL_IMG, MovieListService } from "./service/movies.service";
-import {  MoviesResponse } from "./@type/movies.type";
+// import {  MoviesResponse } from "./@type/movies.type";
 import $ from "./moviesElements";
+
+
 
 // 클릭시 tab이동
 document.addEventListener('DOMContentLoaded', () => {

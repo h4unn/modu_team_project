@@ -353,3 +353,11 @@ h2{
 .todo-item i {
    font-size: 20px;
 }
+
+// media query
+@media(max-width:780px){ //mobile
+   #filter-group {
+     justify-content: flex-start;
+    
+   }
+ }
