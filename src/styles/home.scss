@@ -90,13 +90,16 @@ section#home-weather {
   justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 10px;
-  font-size: 15px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .home-weather-bottom > li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 13px;
 }
 
 .now-location {

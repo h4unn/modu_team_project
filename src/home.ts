@@ -1,5 +1,7 @@
 import "./main";
 import "./styles/home.scss";
+import { homeWeather } from "./home-weather"; // home-weather.ts에서 homeWeather 가져오기
+
 
 // movies import
 import {  SMALL_IMG, MovieListService } from "./service/movies.service";
@@ -26,20 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = '/pages/todo.html';
     });
 });
-
-//Weather
-
-//Stock
-
-
-
-
-
-
-
-
-
-
 
 //-------------------------- Movies ----------------------------------------//
 
@@ -145,3 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
+// Weather
+
+document.addEventListener('DOMContentLoaded', homeWeather);
+
+
+// Stock
