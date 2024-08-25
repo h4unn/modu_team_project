@@ -8,7 +8,7 @@ const movieListService = new MovieListService();
 const IMGS_URL = 'https://image.tmdb.org/t/p/w1280';
 
 function createPopup(data:getPopupData){
-  const {adult, backdrop_path, overview,title, original_title, vote_count,popularity,vote_average} = data;
+  const {backdrop_path, overview,title, original_title, vote_count,popularity,vote_average} = data;
   $.movieDialog?.querySelector('img')?.setAttribute('src',`${IMGS_URL + backdrop_path}`);
   if(!$.movieTit || !$.movieOriginTit || !$.movieDesc || !$.movieLike || !$.movieAudience || !$.movieGrade) return;
   $.movieTit.innerHTML = title;
