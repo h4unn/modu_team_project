@@ -9,12 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.30",
     "typescript": "^5.5.3",
     "vite": "^5.4.0",
     "vite-plugin-handlebars": "^2.0.0"
   },
   "dependencies": {
     "dayjs": "^1.11.12",
+    "jquery": "^3.7.1",
     "sass": "^1.77.8",
     "vite-plugin-html-inject": "^1.1.2"
   }

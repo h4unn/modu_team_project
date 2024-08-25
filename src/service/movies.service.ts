@@ -16,7 +16,8 @@ const HOST_URL = 'https://api.themoviedb.org';
 const TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2FiODczNDg0MGM3ZTg0YmRlZjg3ZThjY2EwYWNjYyIsIm5iZiI6MTcyMzUwNjM1MC41OTA3NjUsInN1YiI6IjY2MTBlMTMzYjA5YmRlMDE3ZWJjYmE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.91Lkyh_Yp1fow-wBetsYkgGhp6Nvw5sm8GnutDrAAE0';
 // /** 이미지 URL */
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-
+/** 홈 작은 이미지 URL */
+export const SMALL_IMG = 'https://image.tmdb.org/t/p/w342';
 
 
 export class MovieListService {
