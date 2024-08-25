@@ -124,8 +124,69 @@ export function renderInitTodoList() {
 
     return;
   }
-
   renderTodoList(state.todos);
 }
 
-($.inputForm as HTMLElement).addEventListener("submit", handleSubmit);
+export function homeRenderInit(){
+  if (!$.todos) return;
+  $.todos.innerHTML = "";
+
+  const isEmpty = state.todos.length === 0;
+
+  if (isEmpty) {
+    $.todos.innerHTML = `<li class="empty-item">
+            <h2>할일이 없습니다.</h2>
+          </li>`;
+    return;
+  }
+  if(state.todos.length > 0){
+    const stateResult = state.todos;
+    stateResult.reverse();
+    homeRenderTodoList(stateResult);
+  }
+  
+
+}
+export function homeRenderTodoList(todos:Todo[]){
+  const $fragment = document.createDocumentFragment();
+  todos.forEach((todo,idx) => {
+    if (idx > 3){return};
+    const $li = document.createElement("li");
+    const classes = `todo-item ${todo.completed ? "complete " : ""}`;
+    $li.className = classes;
+    $li.dataset.id = todo.id;
+
+    $li.onclick = function (e) {
+      const currentTarget = e.currentTarget as HTMLLIElement;
+      const target = e.target as HTMLElement;
+      const id = currentTarget.dataset.id;
+      const button = target.closest("button");
+
+      const action = button?.dataset.action;
+
+      if (!action || !id) return;
+      switch (action) {
+        case "remove":
+          return handleRemove(id,'home');
+        case "complete":
+          return handleComplete(id,'home');
+      }
+    };
+
+    $li.innerHTML = `
+            <button class="complete-button ${todo.completed ? "completed" : ""}" data-action="complete">
+              <i class="fa-solid fa-check"></i>
+            </button>
+            <span class="todo_inn_label">${todo.label}</span>
+            <span class="content">${todo.content}</span>
+            <button class="remove-button" data-action="remove">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+    `;
+
+    $fragment.appendChild($li);
+  });
+  $.todos?.appendChild($fragment);
+}
+
+($.inputForm as HTMLElement)?.addEventListener("submit", handleSubmit);

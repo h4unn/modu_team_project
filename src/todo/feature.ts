@@ -1,7 +1,7 @@
 // feature.ts => event function
 import { STORAGE_KEY } from "./constants";
 import { Todo } from "./models/Todo.model";
-import { renderInitTodoList, state } from "./todos";
+import { renderInitTodoList, state, homeRenderInit } from "./todos";
 
 export const handleSubmit = (e: SubmitEvent) => {
   e.preventDefault();
@@ -20,17 +20,17 @@ export const handleSubmit = (e: SubmitEvent) => {
   renderInitTodoList();
 };
 
-export const handleRemove = (id: string) => {
+export const handleRemove = (id: string,home?: string) => {
   state.todos = state.todos.filter((todo) => {
     return todo.id !== id;
   });
 
   localStorage.setItem(STORAGE_KEY.STATE, JSON.stringify(state));
 
-  renderInitTodoList();
+  home ? homeRenderInit() : renderInitTodoList();
 };
 
-export const handleComplete = (id: string) => {
+export const handleComplete = (id: string, home?:string) => {
   state.todos = state.todos.map((todo) => {
     return {
       ...todo,
@@ -40,5 +40,5 @@ export const handleComplete = (id: string) => {
 
   localStorage.setItem(STORAGE_KEY.STATE, JSON.stringify(state));
 
-  renderInitTodoList();
+  home ? homeRenderInit() : renderInitTodoList();
 };

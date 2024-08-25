@@ -2,6 +2,8 @@ import "./main";
 import "./styles/home.scss";
 import { homeWeather } from "./home-weather"; // home-weather.ts에서 homeWeather 가져오기
 
+import {homeRenderInit} from './todo/todos';
+
 
 // movies import
 import {  SMALL_IMG, MovieListService } from "./service/movies.service";
@@ -24,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     homeMovies.addEventListener('click', () => {
         window.location.href = '/pages/movies.html';
     });
-    homeTodo.addEventListener('click', () => {
-        window.location.href = '/pages/todo.html';
-    });
+    // homeTodo.addEventListener('click', () => {
+    //     window.location.href = '/pages/todo.html';
+    // });
 });
 
 //-------------------------- Movies ----------------------------------------//
@@ -72,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 page: 1,
               },
         });
-        console.log(nowPlayingData);
         
         // 포스터 이미지 영역
         nowPlayingData.results.slice(0, maxImages).forEach((movie) => {
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>
               ${movie.overview}  
             </p>
-            <a>더 보기</a>
+            <a class="movie-more">더 보기</a>
           `;
 
           $overView.append($viewTitle, $viewDescription);
@@ -127,12 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
       }
-
+      homeRenderInit();
       renderNowPlaying();
-
-    
-
-
 // Weather
 
 document.addEventListener('DOMContentLoaded', homeWeather);

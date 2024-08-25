@@ -2,41 +2,52 @@
 <div id="home-wrap">
   <div class="inner">
     <!-- 홈 날씨 영역 시작 -->
-    <section id="home-weather">
-      <h3>오늘 날씨</h3>
-      <div class="home-weather-top">
-        <!-- 날씨 아이콘 -->
-        <!-- 마크업용 날씨 아이콘 -->
-        <img src="" alt="Weather Icon" />
+    <div id="top-area">
 
-        <div class="home-weather-content">
-          <!-- 기온 -->
-          <strong class="weather-num">30&deg;</strong>
-          <!-- 날씨상태 : 맑음, 흐림 etc **  -->
-          <b class="weather-des">맑음</b>
-          
-          <ul class="current-weather-list">
-            <!-- 최고기온 -->
-            <li>최고기온&nbsp;--&deg;</li>
-             <!-- 최저기온 -->
-            <li>최저기온&nbsp;--&deg;</li>
-            <!-- 습도 -->
-            <li>습도&nbsp;--&#37;</li>
+      <section id="home-weather">
+        <div class="weather-area">
+          <h3>오늘 날씨</h3>
+          <div class="now-location">
+            <i class="fa-solid fa-location-dot"></i>
+            현재위치----------
+          </div>
+          <div class="home-weather-top">
+            <!-- 날씨 아이콘 -->
+            <!-- 마크업용 날씨 아이콘 -->
+            <img src="" alt="Weather Icon" />
+            <div class="home-weather-content">
+              <!-- 기온 -->
+              <strong class="weather-num">30&deg;</strong>
+              <!-- 날씨상태 : 맑음, 흐림 etc **  -->
+              <b class="weather-des">맑음</b>
+              <ul class="current-weather-list">
+                <!-- 최고기온 -->
+                <li>최고기온&nbsp;--&deg;</li>
+                <!-- 최저기온 -->
+                <li>최저기온&nbsp;--&deg;</li>
+                <!-- 습도 -->
+                <li>습도&nbsp;--&#37;</li>
+              </ul>
+            </div>
+          </div>
+          <ul class="home-weather-bottom">
+            <!-- 지역별 날씨 아이템 동적추가. -->
           </ul>
         </div>
-      </div>
-
-        <ul class="home-weather-bottom">
-          <!-- 지역별 날씨 아이템 동적추가. -->
+        
+      </section>
+      <!-- 홈 날씨 영역 끝 -->
+      
+      <section class="todo-area">
+        <h3>할 일</h3>
+        <ul id="todos">
         </ul>
-  
-        <div class="now-location">
-          <i class="fa-solid fa-location-dot"></i>
-          현재위치----------
-        </div>
-    </section>
-    <!-- 홈 날씨 영역 끝 -->
+      </section>
 
+    </div>
+    <!-- // top-area -->
+    
+    
 
     <!-- 홈 영화 영역 시작 -->
     <section id="home-movie">
@@ -60,70 +71,63 @@
         <h4>주식</h4>
         
         <div class="stock-list">
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Samsung_Electronics_logo_%28english%29.svg" alt="삼성전자" style="width: 50px; height: 40px;"><b>삼성전자</b> &nbsp;&nbsp;&nbsp;005930</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Samsung_Electronics_logo_%28english%29.svg" alt="삼성전자"><b>삼성전자</b> &nbsp;&nbsp;&nbsp;005930</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/SK_Hynix.svg" alt="SK하이닉스" style="width: 50px; height: 40px;"><b>SK하이닉스</b> &nbsp;&nbsp;&nbsp;000660</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/SK_Hynix.svg" alt="SK하이닉스"><b>SK하이닉스</b> &nbsp;&nbsp;&nbsp;000660</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/LG_Chem_logo_%28korean%29.svg" alt="LG화학" style="width: 50px; height: 40px;"><b>LG화학</b> &nbsp;&nbsp;&nbsp;051910</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/LG_Chem_logo_%28korean%29.svg" alt="LG화학"><b>LG화학</b> &nbsp;&nbsp;&nbsp;051910</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/NCSOFT_logo.svg" alt="엔씨소프트" style="width: 50px; height: 20px;"><b>엔씨소프트</b> &nbsp;&nbsp;&nbsp;036570</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/NCSOFT_logo.svg" alt="엔씨소프트"><b>엔씨소프트</b> &nbsp;&nbsp;&nbsp;036570</button>
 
-          <button><img src="https://i.namu.wiki/i/7iRbq7KJJDtTGUFDmvQ_6ohm9zoGe5yTm9zwdEs-PL2QkBqEEAVQTf5Cm1sLAWy7mf3ddZ4jD7ibZlO5Jx9D8tKIZBqcMZzdKsPsz5Ix4tBkOcmxulBSNowjJiqNfrS0Cfzk0_dE_VF2PBYhRZ7n3w.svg" alt="넥슨게임즈" style="width: 50px; height: 40px;"><b>넥슨게임즈</b> &nbsp;&nbsp;&nbsp;225570</button>
+          <button><img src="https://i.namu.wiki/i/7iRbq7KJJDtTGUFDmvQ_6ohm9zoGe5yTm9zwdEs-PL2QkBqEEAVQTf5Cm1sLAWy7mf3ddZ4jD7ibZlO5Jx9D8tKIZBqcMZzdKsPsz5Ix4tBkOcmxulBSNowjJiqNfrS0Cfzk0_dE_VF2PBYhRZ7n3w.svg" alt="넥슨게임즈"><b>넥슨게임즈</b> &nbsp;&nbsp;&nbsp;225570</button>
         </div>
 
         <!-- <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a> -->
-     </div>
+      </div>
     </section>
-     <!-- 주식 차트 끝  -->
+    <!-- 주식 차트 끝  -->
 
     <!-- 홈 주식 영역 끝 -->
 
-    <!-- 홈 투두 영역 시작 -->
-    <section id="home-todo">
-      <div class="list-header">
-        <h4>TODO</h4>
-        <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
-      </div>
-
-           <div class="top">
-            <form id="input-form">
+      <!-- <section id="home-todo">
+        <div class="list-header">
+          <h4>TODO</h4>
+          <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
+        </div>
       
-               <!-- todo 라벨 시작 (중요한 일, 공부, 약속) -->
-               <div class="todo_labels">
-                  <ul class="todo_labels_list">
-                     <li>
-                        <input type="radio" name="todo_label" id="todo_import" data-state="import" value="중요한일" checked/>
-                        <label for="todo_import">중요한일</label>
-                     </li>
-                     <li>
-                        <input type="radio" name="todo_label" id="todo_study" data-state="study" value="공부"/>
-                        <label for="todo_study">공부</label>
-                     </li>
-                     <li>
-                        <input type="radio" name="todo_label" id="todo_reserve" data-state="promise" value="약속"/>
-                        <label for="todo_reserve">약속</label>
-                     </li>
-            
-                  </ul>
-               </div>
-                <!-- todo 라벨 끝-->
-
-               <!-- 할 일 등록 버튼 시작 -->
-               <div class="user_form">
-                  <input type="text" class="text-input" name="todo" id="todo" placeholder="할일을 입력하세요."/>
-                  <button id="add-btn">
-                     <span>추가</span>
-                     <i class="fa-solid fa-circle-plus"></i>
-                  </button>   
-               </div>
-                 <!-- 할 일 등록 버튼 끝 -->
-            </form>
-         </div>
-
-    </section>
-    <!-- 홈 투두 영역 끝 -->
-  </div>
-
-</div>
-
-
+        <div class="top">
+          <form id="input-form">
+      
+            <div class="todo_labels">
+              <ul class="todo_labels_list">
+                <li>
+                  <input type="radio" name="todo_label" id="todo_import" data-state="import" value="중요한일" checked />
+                  <label for="todo_import">중요한일</label>
+                </li>
+                <li>
+                  <input type="radio" name="todo_label" id="todo_study" data-state="study" value="공부" />
+                  <label for="todo_study">공부</label>
+                </li>
+                <li>
+                  <input type="radio" name="todo_label" id="todo_reserve" data-state="promise" value="약속" />
+                  <label for="todo_reserve">약속</label>
+                </li>
+      
+              </ul>
+            </div>
+      
+            <div class="user_form">
+              <input type="text" class="text-input" name="todo" id="todo" placeholder="할일을 입력하세요." />
+              <button id="add-btn">
+                <span>추가</span>
+                <i class="fa-solid fa-circle-plus"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <ul id="todos">
+        </ul>
+      </section> -->
+    </div>
+    
+    </div>
