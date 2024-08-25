@@ -263,22 +263,48 @@ ul.overview .view-des a {
 
 //  <!-- 홈 주식 영역 시작 -->
 
-.stock_div {
-  padding-top: 25px;
-  margin: 0 auto;
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0;
 }
 
-#chart-container{
-  position: relative;
-  // width: 600px;
-  // height: 400px;
+.stock-list button{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+
+  outline: 1px solid #55A4FF;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  margin: 5px 0;
 }
 
-#base-chart, #overlay-chart {
-  position: absolute;
-  top: 0;
-  left: 0;
+.stock-list img{
+  margin-right: 20px;
 }
+
+.stock_name{
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.stock_price{
+  font-size: 30px;
+}
+
+.stock_rate{
+  font-size: 15px;
+  color: red;
+}
+
 //  <!-- 홈 주식 영역 끝 -->
 
 

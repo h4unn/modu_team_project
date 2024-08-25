@@ -7,12 +7,42 @@
     </form>    
 
 
-    <!-- 차트 그리기 -->
-    <div id="chart-container">
-      <canvas id="base-chart"></canvas>
+    <div class="stock-page">    
+
+      <!-- 종목코드 반영 버튼들 -->
+      <div class="stock-list">
+        <button id="stock_1"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Samsung_Electronics_logo_%28english%29.svg" class="stock-image" alt="삼성전자" style="width: 50px; height: 40px;"><b>삼성전자</b> &nbsp;&nbsp;&nbsp;005930</button>
+
+        <button id="stock_2"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/SK_Hynix.svg" class="stock-image" alt="SK하이닉스" style="width: 50px; height: 40px;"><b>SK하이닉스</b> &nbsp;&nbsp;&nbsp;000660</button>
+
+        <button id="stock_3"><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/LG_Chem_logo_%28korean%29.svg" class="stock-image" alt="LG화학" style="width: 50px; height: 40px;"><b>LG화학</b> &nbsp;&nbsp;&nbsp;051910</button>
+
+        <button id="stock_4"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/NCSOFT_logo.svg" class="stock-image" alt="엔씨소프트" style="width: 50px;height: 15px;"><b>엔씨소프트</b> &nbsp;&nbsp;&nbsp;036570</button>
+
+        <button id="stock_5"><img src="https://i.namu.wiki/i/7iRbq7KJJDtTGUFDmvQ_6ohm9zoGe5yTm9zwdEs-PL2QkBqEEAVQTf5Cm1sLAWy7mf3ddZ4jD7ibZlO5Jx9D8tKIZBqcMZzdKsPsz5Ix4tBkOcmxulBSNowjJiqNfrS0Cfzk0_dE_VF2PBYhRZ7n3w.svg" class="stock-image" alt="넥슨게임즈" style="width: 50px; height: 40px;"><b>넥슨게임즈</b> &nbsp;&nbsp;&nbsp;225570</button>
+
+        <button id="stock_6"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/KB_logo.svg" class="stock-image" alt="KB금융" style="width: 50px; height: 40px;"><b>KB금융</b> &nbsp;&nbsp;&nbsp;105560</button>
+
+        <button id="stock_7"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/POSCO_logo.svg" class="stock-image" alt="POSCO홀딩스" style="width: 50px;height: 40px;"><b>POSCO홀딩스</b> &nbsp;&nbsp;&nbsp;005490</button>
+
+        <button id="stock_8"><img src="https://i.namu.wiki/i/1lexCPNOiuRqyXktMhG8S_tXQw1z2__2Di8vu9U7aP8F5jrSLZANexnd1AlH92Wwn6w_tPxvByLkhUMTkZz776giRU4pdFDxG04giXxHiFwDGTPR_4zkLXdhH66JXHPsE77RgalBehiYGfeKV0sIcg.svg" class="stock-image" alt="셀트리온" style="width: 50px; height: 40px;"><b>셀트리온</b> &nbsp;&nbsp;&nbsp;068270</button>
+
+        <button id="stock_9"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Hanwha_logo.svg" class="stock-image" alt="한화" style="width: 50px; height: 40px;"><b>한화</b> &nbsp;&nbsp;&nbsp;000880</button>
+
+        <button id="stock_10"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Hyundai_Motor_Company_logo.svg" class="stock-image" alt="현대차" style="width: 50px; height: 40px;"><b>현대차</b> &nbsp;&nbsp;&nbsp;005380</button>
+      </div>
+      
+
+      <!-- 차트 그리기 -->
+      <div id="chart-container">
+        <h2 id="stock_info"></h2>
+        <canvas id="base-chart"></canvas>
+        <div id="custom-tooltip" style="position: absolute; background: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 3px; pointer-events: none; display: none;"></div>
+      </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../stock.ts"></script>     
+    <script src="/stock.ts"></script>
     
 </div>

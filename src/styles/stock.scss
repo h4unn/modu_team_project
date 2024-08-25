@@ -5,10 +5,6 @@ body {
     color: #1F2024;
 }
 
-// h1{
-//     margin-top: 20px;
-// }
-
 input {
     width: 100%;
     height: 40px;
@@ -18,15 +14,51 @@ input {
     border-color: #B4DBFF;
 }
 
+.stock-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+#stock_1, #stock_2, #stock_3, #stock_4, #stock_5,
+#stock_6, #stock_7, #stock_8, #stock_9, #stock_10{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    margin: 10px auto;
+}
+
+.stock-list{
+    flex: 1;
+    width: 100%;
+}
+
+.stock-list button{
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+
+    outline: 1px solid #55A4FF;
+    width: 100%;
+}
+
+.stock-image{
+    margin-right: 10px;
+}
+
 .stock_div{
     margin: 0 auto;
-    // width: 1280px;
-    // max-width: 100%;
 }
 
 .stock_div h2{
     text-align: left;
-    margin: 30px 0 30px 0;
+    margin: 20px 0 20px 0;
 }
 
 .stock_div form{
@@ -43,7 +75,10 @@ input {
 }
 
 #chart-container{
-    position: relative;
-    margin: 20px;
-    max-width: 100%;
+    margin: 20px 0px 20px 20px;
+    width: 1000px;
+}
+
+#chart-container h2{
+    margin-left: 10%;
 }
