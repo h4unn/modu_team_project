@@ -118,6 +118,17 @@ const showRegionWeatherDetails = (cityKey: string, regionWeatherData: WeatherDat
 
 const initWeather = async (): Promise<void> => {
   try { 
+    
+    
+    for (const cityKey in citiesCoordinates) {
+      const { lat, lon } = citiesCoordinates[cityKey];
+      const regionWeatherData = await weatherService.getCurrentWeather({
+        params: { lat, lon },
+      });
+
+      updateRegionWeatherUI(cityKey, regionWeatherData);
+    }
+
     try { 
       await updateLocation()
       } catch(error) {};
@@ -131,16 +142,6 @@ const initWeather = async (): Promise<void> => {
       });
 
     updateWeatherUI(currentWeatherData);
-    
-    for (const cityKey in citiesCoordinates) {
-      const { lat, lon } = citiesCoordinates[cityKey];
-      const regionWeatherData = await weatherService.getCurrentWeather({
-        params: { lat, lon },
-      });
-
-      updateRegionWeatherUI(cityKey, regionWeatherData);
-    }
-
 
   } catch (error) {}
 };

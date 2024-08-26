@@ -44,6 +44,15 @@ export const homeRegionUI = (cityKey: string, homeRegionData: WeatherData): void
 
 export const homeWeather = async (): Promise<void> => {
     try { 
+
+        for (const cityKey in citiesCoordinates) {
+            const { lat, lon } = citiesCoordinates[cityKey];
+            const homeRegionData = await weatherService.getCurrentWeather({
+                params: { lat, lon },
+            });
+            homeRegionUI(cityKey, homeRegionData);
+        }
+        
         try {
             await updateLocation()
         } catch(error) {};
@@ -58,13 +67,7 @@ export const homeWeather = async (): Promise<void> => {
 
         homeWeatherUI(currentWeatherData);
 
-        for (const cityKey in citiesCoordinates) {
-            const { lat, lon } = citiesCoordinates[cityKey];
-            const homeRegionData = await weatherService.getCurrentWeather({
-                params: { lat, lon },
-            });
-            homeRegionUI(cityKey, homeRegionData);
-        }
+
 
     } catch (error) {}
 };
