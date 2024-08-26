@@ -58,6 +58,7 @@ section:nth-child(2) {
     -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   
     outline: 1px solid var(--main);
+    cursor: pointer;
   }
   & .todo-area{
     width:50%;

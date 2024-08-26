@@ -29,25 +29,51 @@ input {
     width: 100%;
     height: 50px;
     font-size: 15px;
-    margin: 10px auto;
+    // margin: 10px auto;
 }
 
 .stock-list{
     flex: 1;
     width: 100%;
-    min-width:500px;
-}
+    // min-width:500px;
 
-.stock-list button{
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
     -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
     -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
-
-    outline: 1px solid #55A4FF;
-    width: 100%;
+    overflow: hidden;
 }
+
+.stock-list button{
+    // background-color: #fff;
+    // border-radius: 12px;
+    // box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    // -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    // -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    cursor: pointer;
+
+    // outline: 1px solid #55A4FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    // margin: 5px 0;
+    & img{
+      max-height:25px;
+      height:100%;
+    }
+    border-bottom: 3px solid #ecedef;
+}
+
+.stock-list button:first-child {
+    border-top: 3px solid  rgba(255,255,255,0.8);
+   }
+  
+  .stock-list button:last-child{
+    border-bottom: 3px solid  rgba(255,255,255,0.8);
+  }
 
 .stock-image{
     margin-right: 10px;
