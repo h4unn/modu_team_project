@@ -52,6 +52,7 @@ input {
     // -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
     // -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
     cursor: pointer;
+    border-bottom: 3px solid #ecedef;
 
     // outline: 1px solid #55A4FF;
     display: flex;
@@ -64,7 +65,6 @@ input {
       max-height:25px;
       height:100%;
     }
-    border-bottom: 3px solid #ecedef;
 }
 
 .stock-list button:first-child {
