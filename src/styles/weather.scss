@@ -94,14 +94,22 @@ section.region-weather ul {
   box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  overflow: hidden;
  }
 
  .region-weather ul li {
   padding: 15px 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 3px solid #ecedef;
   color: #494A50;
  }
 
+ .region-weather ul li:first-child {
+  border-top: 3px solid  rgba(255,255,255,0.8);
+ }
+
+ .region-weather ul li:last-child {
+  border-bottom: 3px solid  rgba(255,255,255,0.8);
+ }
 
  .region-weather ul li a {
   // 영어일때 - font family만 빼주세용
