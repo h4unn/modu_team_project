@@ -79,6 +79,7 @@ async function renderNowPlaying() { // now movie
       include_video: false,
       language: "ko-KR",
       page: 1,
+      sort_by: "popularity.desc",
     },
   });
 
@@ -125,11 +126,13 @@ async function renderNowPlaying() { // now movie
       include_video: false,
       language: "ko-KR",
       page: 1,
-      "release_date.gte": "2022-07-01",
-      "release_date.lte": "2022-09-30",
+      // "release_date.lte": "2024-11-30",
+      sort_by: "primary_release_date.desc",
+      "release_date.gte": "2024-10-01",
+      "release_date.lte": "2024-10-30",
     },
   });
-  // console.log("upcomingData", upcomingData);
+  console.log("upcomingData", upcomingData);
 
   // 개봉 예정작 포스터 가져오기 //
   if (!$.movieContainer3) return;
