@@ -7,15 +7,24 @@ export default {
       input: {
         // 추가하고 싶은 페이지는 pages에서 추가하면 됨
         main: path.resolve(__dirname, "index.html"), // 홈
-        task: path.resolve(__dirname, "pages/task.html"), // 할 일
-        addTask: path.resolve(__dirname, "pages/add-task.html"), // 할 일 추가
+        todo: path.resolve(__dirname, "pages/todo.html"), // todo
         movies: path.resolve(__dirname, "pages/movies.html"), // 영화
-        timer: path.resolve(__dirname, "pages/timer.html"), // 타이머
+        stock: path.resolve(__dirname, "pages/stock.html"), // 주식
+        weather: path.resolve(__dirname, "pages/weather.html"), // 날씨
       },
     },
   },
   server: {
     port: 3000,
+    proxy: {
+      // "/api": {
+      //   target: "https://apis.data.go.kr",
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, ""),
+      //   secure: false,
+      //   ws: true,
+      // },
+    },
   },
   plugins: [
     injectHTML(),

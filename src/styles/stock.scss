@@ -1,0 +1,135 @@
+@import "_reset";
+
+body {
+    text-align: center;
+    color: #1F2024;
+}
+
+.search-form{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #B4DBFF;
+}
+
+.stock-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.inner{    
+    background-color: rgba(255,255,255,0.9);
+    outline: 1px solid #55A4FF;
+    padding:20px;
+    min-height: 100%;
+    height: auto;
+    border-radius: 30px;
+    margin:20px auto;
+}
+
+
+#stock_1, #stock_2, #stock_3, #stock_4, #stock_5,
+#stock_6, #stock_7, #stock_8, #stock_9, #stock_10{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    // margin: 10px auto;
+}
+
+.stock-list{
+    flex: 1;
+    width: 100%;
+    min-width:30%;
+
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.stock-list button{
+    // background-color: #fff;
+    // border-radius: 12px;
+    // box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    // -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    // -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    cursor: pointer;
+    border-bottom: 3px solid #ecedef;
+
+    // outline: 1px solid #55A4FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    // margin: 5px 0;
+    & img{
+      max-height:25px;
+      height:100%;
+    }
+}
+
+.stock-list button:first-child {
+    border-top: 3px solid  rgba(255,255,255,0.8);
+   }
+  
+  .stock-list button:last-child{
+    border-bottom: 3px solid  rgba(255,255,255,0.8);
+  }
+
+.stock-image{
+    margin-right: 10px;
+}
+
+.stock_div{
+    margin: 0 auto;
+
+}
+
+.stock_div h2{
+    text-align: left;
+    margin: 20px 0 20px 0;
+}
+
+.stock_div form{
+    display: flex;
+}
+
+.stock_div form button{
+    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #52A1FF;
+    color: #fff;
+}
+
+#chart-container{
+    flex: 2;
+    margin: 20px 0px 20px 20px;
+    // max-width: 70%;
+    border-radius: 12px;
+    box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    background-color: white;
+    // max-width: 100%;
+}
+
+#chart-container h2{
+    margin-left: 10%;
+}
