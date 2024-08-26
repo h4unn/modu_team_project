@@ -2,6 +2,7 @@
 
 :root {
   --text-color: #52a1ff;
+  --main: #55A4FF;
 }
 
 #wrap {
@@ -15,7 +16,19 @@
   display: flex;
   gap: 5px;
 }
-
+#cont_wrapper {
+  font-family: 'Noto Sans KR', sans-serif;
+ 
+  & .inner {
+    background-color: rgba(255,255,255,0.9);
+    outline: 1px solid var(--main);
+    padding:20px;
+    min-height: 100%;
+    height: auto;
+    border-radius: 30px;
+    margin:10px auto;
+  }
+ }
 
 
 #search-input {
@@ -48,7 +61,7 @@
   justify-content: space-between;
   margin-top: 18px;
   h2 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -103,11 +116,6 @@ ul {
 .movie-slider::-webkit-scrollbar {
   display: none;
 }
-
-.movie-container {
-  
-}
-
 
 dialog{
   position:absolute;
@@ -169,6 +177,11 @@ dialog{
 
 // media query
 @media(max-width:780px){ //mobile
+  .list-header {
+    h2 {
+      font-size: 1rem;
+    }
+  }
   dialog{
     width:100%;
     padding:7%;
@@ -206,8 +219,4 @@ dialog{
       cursor: pointer;
     }
   }
-}
-
-.BottomTab {
-  // position: fixed;
 }

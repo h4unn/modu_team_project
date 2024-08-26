@@ -11,6 +11,7 @@ export let state: {
   todos: [] as Todo[],
   mapTodo: new Map<string, Todo>(),
 };
+const todoMoreBtn = document.querySelector('.todo-more button');
 
 if (localStorage.getItem(STORAGE_KEY.STATE)) {
   state = JSON.parse(localStorage.getItem(STORAGE_KEY.STATE) ?? "{}");
@@ -127,7 +128,7 @@ export function renderInitTodoList() {
   renderTodoList(state.todos);
 }
 
-export function homeRenderInit(){
+export function homeRenderInit(todo_num?:number){
   if (!$.todos) return;
   $.todos.innerHTML = "";
 
@@ -142,15 +143,17 @@ export function homeRenderInit(){
   if(state.todos.length > 0){
     const stateResult = state.todos;
     stateResult.reverse();
-    homeRenderTodoList(stateResult);
+    homeRenderTodoList(stateResult,todo_num);
   }
   
 
 }
-export function homeRenderTodoList(todos:Todo[]){
+export function homeRenderTodoList(todos:Todo[],todo_num?:number){
   const $fragment = document.createDocumentFragment();
+  
   todos.forEach((todo,idx) => {
-    if (idx > 3){return};
+    if(!todo_num) return todo_num = 3;
+    if (idx > todo_num) return;
     const $li = document.createElement("li");
     const classes = `todo-item ${todo.completed ? "complete " : ""}`;
     $li.className = classes;

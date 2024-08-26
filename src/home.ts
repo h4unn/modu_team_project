@@ -1,7 +1,6 @@
 import "./main";
 import "./styles/home.scss";
 import { homeWeather } from "./home-weather"; // home-weather.ts에서 homeWeather 가져오기
-
 import {homeRenderInit} from './todo/todos';
 
 
@@ -10,14 +9,11 @@ import {  SMALL_IMG, MovieListService } from "./service/movies.service";
 // import {  MoviesResponse } from "./@type/movies.type";
 import $ from "./moviesElements";
 
-
-
 // 클릭시 tab이동
 document.addEventListener('DOMContentLoaded', () => {
     const homeWeather = document.getElementById('home-weather') as HTMLElement;
     const homeStock = document.getElementById('home-stock') as HTMLElement;
     const homeMovies = document.getElementById('home-movie') as HTMLElement;
-    const homeTodo = document.getElementById('home-todo') as HTMLElement;
 
     homeWeather.addEventListener('click', () => {
         window.location.href = '/pages/weather.html';
@@ -28,13 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     homeMovies.addEventListener('click', () => {
         window.location.href = '/pages/movies.html';
     });
-    // homeTodo.addEventListener('click', () => {
-    //     window.location.href = '/pages/todo.html';
-    // });
+    
 });
 
 //-------------------------- Movies ----------------------------------------//
-
     const movieListService = new MovieListService();
 
 
@@ -108,7 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
       }
+      let todoNumber = 3
       homeRenderInit();
+      document.querySelector('.todo-more')?.addEventListener('click',()=> {
+        todoNumber++;
+        homeRenderInit(todoNumber);
+      })
       renderNowPlaying();
 // Weather
 

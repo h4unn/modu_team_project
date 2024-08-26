@@ -1,4 +1,3 @@
-
 <div id="home-wrap">
   <div class="inner">
     <!-- 홈 날씨 영역 시작 -->
@@ -34,52 +33,63 @@
             <!-- 지역별 날씨 아이템 동적추가. -->
           </ul>
         </div>
-        
+
       </section>
       <!-- 홈 날씨 영역 끝 -->
-      
+
       <section class="todo-area">
         <h3>할 일</h3>
         <ul id="todos">
         </ul>
+        <div class="todo-more">
+          <button><i class="fas fa-angle-down"></i></button>
+        </div>
       </section>
 
     </div>
     <!-- // top-area -->
-    
-    
+
+
 
     <!-- 홈 영화 영역 시작 -->
     <section id="home-movie">
       <div class="list-header">
         <h4>영화</h4>
         <a href="./Movies.view.html" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
-     </div>
-    <div class="movie-slider">
-        <ul class="movie-container-2">
-        <!-- 현재 상영작 리스트 동적추가 -->
-             
-        </ul>
-    </div>
+      </div>
+
+      <div class="movie-slider">
+          <ul class="movie-container-2">
+            <!-- 현재 상영작 리스트 동적추가 -->
+
+          </ul>
+      </div>
     </section>
     <!-- 홈 영화 영역 끝 -->
 
     <!-- 홈 주식 영역 시작 -->
     <section id="home-stock">
       <div class="stock-top">
-        
+
         <h4>주식</h4>
-        
+
         <div class="stock-list">
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Samsung_Electronics_logo_%28english%29.svg" alt="삼성전자"><b>삼성전자</b> &nbsp;&nbsp;&nbsp;005930</button>
+          <button><img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Samsung_Electronics_logo_%28english%29.svg"
+              alt="삼성전자"><b>삼성전자</b> &nbsp;&nbsp;&nbsp;005930</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/SK_Hynix.svg" alt="SK하이닉스"><b>SK하이닉스</b> &nbsp;&nbsp;&nbsp;000660</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/SK_Hynix.svg" alt="SK하이닉스"><b>SK하이닉스</b>
+            &nbsp;&nbsp;&nbsp;000660</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/LG_Chem_logo_%28korean%29.svg" alt="LG화학"><b>LG화학</b> &nbsp;&nbsp;&nbsp;051910</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/LG_Chem_logo_%28korean%29.svg"
+              alt="LG화학"><b>LG화학</b> &nbsp;&nbsp;&nbsp;051910</button>
 
-          <button><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/NCSOFT_logo.svg" alt="엔씨소프트"><b>엔씨소프트</b> &nbsp;&nbsp;&nbsp;036570</button>
+          <button><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/NCSOFT_logo.svg"
+              alt="엔씨소프트"><b>엔씨소프트</b> &nbsp;&nbsp;&nbsp;036570</button>
 
-          <button><img src="https://i.namu.wiki/i/7iRbq7KJJDtTGUFDmvQ_6ohm9zoGe5yTm9zwdEs-PL2QkBqEEAVQTf5Cm1sLAWy7mf3ddZ4jD7ibZlO5Jx9D8tKIZBqcMZzdKsPsz5Ix4tBkOcmxulBSNowjJiqNfrS0Cfzk0_dE_VF2PBYhRZ7n3w.svg" alt="넥슨게임즈"><b>넥슨게임즈</b> &nbsp;&nbsp;&nbsp;225570</button>
+          <button><img
+              src="https://i.namu.wiki/i/7iRbq7KJJDtTGUFDmvQ_6ohm9zoGe5yTm9zwdEs-PL2QkBqEEAVQTf5Cm1sLAWy7mf3ddZ4jD7ibZlO5Jx9D8tKIZBqcMZzdKsPsz5Ix4tBkOcmxulBSNowjJiqNfrS0Cfzk0_dE_VF2PBYhRZ7n3w.svg"
+              alt="넥슨게임즈"><b>넥슨게임즈</b> &nbsp;&nbsp;&nbsp;225570</button>
         </div>
 
         <!-- <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a> -->
@@ -88,46 +98,6 @@
     <!-- 주식 차트 끝  -->
 
     <!-- 홈 주식 영역 끝 -->
+  </div>
 
-      <!-- <section id="home-todo">
-        <div class="list-header">
-          <h4>TODO</h4>
-          <a href="" class="btn-more"><i class="fa-solid fa-angle-right"></i></a>
-        </div>
-      
-        <div class="top">
-          <form id="input-form">
-      
-            <div class="todo_labels">
-              <ul class="todo_labels_list">
-                <li>
-                  <input type="radio" name="todo_label" id="todo_import" data-state="import" value="중요한일" checked />
-                  <label for="todo_import">중요한일</label>
-                </li>
-                <li>
-                  <input type="radio" name="todo_label" id="todo_study" data-state="study" value="공부" />
-                  <label for="todo_study">공부</label>
-                </li>
-                <li>
-                  <input type="radio" name="todo_label" id="todo_reserve" data-state="promise" value="약속" />
-                  <label for="todo_reserve">약속</label>
-                </li>
-      
-              </ul>
-            </div>
-      
-            <div class="user_form">
-              <input type="text" class="text-input" name="todo" id="todo" placeholder="할일을 입력하세요." />
-              <button id="add-btn">
-                <span>추가</span>
-                <i class="fa-solid fa-circle-plus"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        <ul id="todos">
-        </ul>
-      </section> -->
-    </div>
-    
-    </div>
+</div>
