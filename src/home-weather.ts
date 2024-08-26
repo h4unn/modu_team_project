@@ -44,7 +44,9 @@ export const homeRegionUI = (cityKey: string, homeRegionData: WeatherData): void
 
 export const homeWeather = async (): Promise<void> => {
     try { 
-        await updateLocation();
+        try {
+            await updateLocation()
+        } catch(error) {};
 
         const currentWeatherData = await weatherService.getCurrentWeather({
             params: {
