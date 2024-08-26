@@ -1,5 +1,5 @@
 @import "_reset";
-@import './todo.scss';
+@import './todo.scss';                                               
 // @import './movie.scss';
 // @import './stock.scss';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
@@ -8,18 +8,18 @@
 
 :root {
   --wtcolor: #fff;
-  --light: #B3DAFF;
+  --light: #B3DAFF;                                                        
   --main: #55A4FF;
   --dark: #0083FF;
-  --txt: #080909;
+  --txt: #080909;                                   
 }
 
 section {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;                                                                                                                                                                                                                                                        
 }
 
 section:nth-child(2) {
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 // 전체영역 inner
@@ -381,6 +381,7 @@ ul.movie-container-2 {
 ul.overview .view-title {
   padding-bottom: 15px;
   font-weight: 700;
+  font-size: 17px;
 }
 
 
@@ -391,18 +392,19 @@ ul.overview .view-des p {
   // white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 ul.overview .view-des a {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 2px 13px;
-  border-radius: 9px;
+  display: block;
+  margin-top: 20px;
+  padding: 7px 13px;
+  border-radius: 5px;
   background-color: var(--main);
   color: #fff;
   font-size: 13px;
+  text-align: center;
 
 }
 
@@ -544,7 +546,7 @@ ul.overview .view-des a {
     border-radius: 9px;
     background-color: var(--main);
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
 
   }
   
