@@ -1,0 +1,61 @@
+
+<div id="weather-wrap">
+  <div class="inner">
+     <!-- 현재 날씨 영역 시작 -->
+     <section class="current-weather">
+         <!-- 지역 -->
+         <h3> 현재위치</h3>
+         <h3 class="city-title">Loading...</h3>   
+         <!-- 날씨 아이콘 -->
+         <img src="" alt="Weather Icon" />
+ 
+ 
+         <!-- 날씨상태 : 맑음, 흐림 etc ** 한글로 들어오면 .weather-des의 주석부분 적용시켜주세욤  -->
+         <b class="weather-des">Loading...</b>
+         <!-- 기온 -->
+         <strong class="weather-num">--&deg;</strong>
+ 
+         <ul class="current-weather-list">
+           <!-- 습도 -->
+           <li><i class="fa-solid fa-droplet"></i>--&#37;</li>
+           <!-- 최고기온 -->
+           <li><i class="fa-solid fa-temperature-arrow-up"></i>--&deg;</li>
+            <!-- 최저기온 -->
+           <li><i class="fa-solid fa-temperature-arrow-down"></i>--&deg;</li>
+         </ul>
+     </section>
+     <!-- 현재 날씨 영역 끝 -->
+ 
+ 
+     <!-- 지역별 날씨 시작 -->
+     <section class="region-weather">
+      <ul id="region-weather-list">
+      <!-- 지역별 날씨 아이템 동적추가. -->
+      </ul>
+    </section>
+      <!-- 지역별 날씨 끝 -->
+
+      <section class="current-weather region-weather-content">
+        <!-- 지역 -->
+        <h3 class="region-title">지역을 선택해 주세요</h3>
+        <div class="region-title-list">  
+        <!-- 기온 -->
+        <strong class="region-num">--&deg;</strong>
+        <!-- 날씨 아이콘 -->
+        <img src="" alt="" />
+        </div>       
+
+     
+        <ul class="region-weather-list">
+          <!-- 습도 -->
+          <li><i class="fa-solid fa-droplet"></i>--&#37;</li>
+          <!-- 최고기온 -->
+          <li><i class="fa-solid fa-temperature-arrow-up"></i>--&deg;</li>
+          <!-- 최저기온 -->
+          <li><i class="fa-solid fa-temperature-arrow-down"></i>--&deg;</li>
+        </ul>
+      </section>
+         
+  </div>
+
+ </div>

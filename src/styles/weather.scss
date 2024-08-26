@@ -1,0 +1,181 @@
+@import "_reset";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
+
+:root {
+  --wtcolor: #fff;
+  --light: #B3DAFF;
+  --main: #55A4FF;
+  --dark: #0083FF;
+  --txt: #080909;
+}
+
+// fontweight 100/300/400-regular/500-midium/700-bold/900 - roboto
+
+
+
+// 홀수번째 section 위아래 마진
+section:nth-child(odd) {
+  margin: 15px 0;
+}
+
+// 전체영역 inner
+#weather-wrap .inner {
+  margin: 0 auto;
+  max-width: 1280px; 
+  width: 100%;
+  padding: 0 15px;
+}
+
+
+// 섹션 1 - 현재날씨영역 //
+section.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: var(--wtcolor);
+  outline: 1px solid var(--main);
+  border-radius: 12px;
+  color: var(--txt);
+}
+
+.current-weather h3 {
+  font-weight: 300;
+  letter-spacing: 0.05em;  
+  color: var(--dark);
+}
+
+// 날씨 아이콘 이미지
+.current-weather img {
+  width: 100%;
+  max-width: 150px;
+}
+
+// 날씨 설명 - light rain
+.weather-des {
+  // display: block;
+  // font-weight: 400;
+  // color: #8F9098;
+
+  // 한글일 때! font family, size 적용
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+}
+
+// 현재 기온
+ .weather-num {
+  display: block;
+  font-size: 50px;
+ }
+
+// 습도 / 최고기온 / 최저기온 //
+ ul.current-weather-list {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 15px;
+  font-size: 1.15em;
+  color: #494A50;
+ }
+
+ ul.current-weather-list li i {
+   color: var(--main);
+   padding-right: 7px;
+ }
+
+
+
+// 섹션 2 - 지역별 날씨 리스트
+section.region-weather ul {
+  // background-color: var(--wtcolor);
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 12px;
+  box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+ }
+
+ .region-weather ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  color: #494A50;
+ }
+
+
+ .region-weather ul li a {
+  // 영어일때 - font family만 빼주세용
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+
+
+ .region-weather ul li span {
+   font-size: 18px;
+   font-weight: 600;
+   color: var(--txt);
+   display: flex;
+   align-items: center;
+ }
+
+ .region-weather ul li span img {
+   padding-left: 5px;
+   filter: invert(100%) sepia(100%) saturate(1000%) hue-rotate(180deg) brightness(100%) contrast(100%);
+   height: 35px;
+ }
+
+
+
+// 섹션 3 - 지역별 날씨 컨텐츠
+section.region-weather-content {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: var(--light);
+  padding: 20px;
+  text-align: left;
+ }
+
+ .region-weather-content h3 {
+  flex-basis: 80%;
+  color: var(--txt);
+  font-weight: 500;
+
+ }
+
+ .region-title-list {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-basis: 20%;
+ }
+
+ .region-weather-content img {
+    filter: invert(100%) sepia(100%) saturate(1000%) hue-rotate(180deg) brightness(100%) contrast(100%);
+    max-width: 70px;
+ }
+
+ .region-weather-content ul {
+   padding: 0;
+   font-size: 16px;
+ }
+
+
+ .region-weather-list {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 15px;
+  font-size: 1.15em;
+  color: #494A50;
+ }
+
+ .region-weather-list li i {
+  color: var(--main);
+  padding-right: 7px;
+}

@@ -1,1 +1,363 @@
+
 @import "_reset";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
+
+
+:root {
+   --wtcolor: #fff;
+   --light: #B3DAFF;
+   --main: #55A4FF;
+   --dark: #0083FF;
+   --txt: #080909;
+ }
+
+ 
+
+#cont_wrapper{
+   max-width:1280px;
+   margin:0 auto;
+   padding:24px 0;
+   box-sizing: border-box;
+   height:100%;
+
+   & .inner{
+      padding:24px;
+      box-sizing: border-box;
+      height:100%;
+      border-radius: 30px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+}
+
+h2{
+   padding:12px 0 ;
+}
+
+
+
+.todo_labels{
+   width:100%;
+   .todo_labels_list{
+      list-style: none;
+      display: flex;
+      gap:12px;
+      justify-items: center;
+      & li{
+         position: relative;
+         & input{
+            position:absolute;
+            left:-9999px ;top:0;
+            width:1px; height:1px;
+            overflow:hidden;
+         }
+         & label{
+            display: block;
+            padding:8px 12px;
+            background-color: #B3DAFF;
+            border-radius:13px;
+            color:#efefef;
+            cursor:pointer;
+            transition:.3s ease all;
+            &#todo_study {
+               background-color: #6750A4;
+            }
+            &#todo_import {
+               background-color: #6750A4;
+            }
+         }
+         
+         & input + label[for="todo_import"] {
+            background-color: rgba(103,80,138,.7);
+         }
+         & input:checked + label[for="todo_import"] {
+            background-color: rgba(103,80,138,1);
+         }
+
+         & input + label[for="todo_study"] {
+            background-color: rgba(239,184,200,.7);
+         }
+         & input:checked + label[for="todo_study"] {
+            background-color: rgba(239,184,200,1);
+         }
+
+         & input + label[for="todo_reserve"] {
+            background-color: rgba(121,116,126,.7);
+         }
+         & input:checked + label[for="todo_reserve"] {
+            background-color: rgba(121,116,126,1);
+         }
+      }
+   }
+}
+
+.top{padding:20px 0; width:100%;}
+#input-form {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   width: 100%;
+   
+   .user_form{
+      display: flex;
+      gap:12px;
+   }
+   .text-input {
+      border-radius: 8px;
+      border:1px solid #52A1FF;
+      padding: 16px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      flex: 1 auto;
+      color:#080909;
+      &:focus{
+         border:1px solid #6FBAFF;
+      }
+   }
+   #add-btn {
+      cursor:pointer;
+      border-radius: 8px;
+      background: #52A1FF;
+      color:#fff;
+      padding: 16px;
+      height: 52px;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      transition:.3s ease all;
+      &:hover{
+         background:#0083FF;
+      }
+   }
+   
+   
+}
+
+
+#main{width:100%;}
+
+#filter-group {
+   // width: 100%;
+   display: flex;
+   // flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   margin: 0 auto;
+   border-bottom: 1px solid var(--Grey-400, #333);
+   padding-bottom: 24px;
+   .filter-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 8px;
+      border-radius: 8px;
+      color:#080909;
+      cursor:pointer;
+      &.active {
+         background-color: #52A1FF;
+         color:#fff;
+  
+      }
+      .count {
+         font-size: 12px;
+         display: inline-block;
+         line-height: 16px;
+         height: 16px;
+         padding: 0 8px;
+         color: #080909;
+         border-radius: 999px;
+         background: #fff;
+      }
+   }
+ 
+}
+
+#todos{
+   padding-top:24px;
+   width:100%;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   .todo-item{
+      list-style: none;
+      border-radius:8px;
+      border:1px solid #52A1FF;
+      padding:12px;
+      & .todo_inn_label{
+         padding:8px 12px;
+         border-radius: 8px;
+         font-size:14px;
+         font-weight:600;
+         color:#fff
+      }
+   }
+   & .todo-item.import .todo_inn_label{
+      background-color: rgba(103,80,138,1);
+   }
+   & .todo-item.study .todo_inn_label{
+      background-color: rgba(239,184,200,1);
+   }
+   & .todo-item.promise .todo_inn_label{
+      background-color: rgba(121,116,126,1);
+   }
+   & .empty-item{
+      text-align: center;
+   }
+}
+.todo-item {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 16px;
+   padding: 16px;
+   border: 1px solid #52A1FF;
+   border-radius: 8px;
+   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+
+   i {
+      color: #808080;
+   }
+   button {
+      flex-shrink: 0;
+   }
+
+   .content {
+      font-size: 14px;
+      color:#080909;
+   }
+
+   &.complete {
+      .complete-button {
+         background-color: #4ea8de;
+         i {
+            display: inline-block;
+            color: #fff;
+            font-size: 14px;
+         }
+      }
+
+      .content {
+         color: var(--Gray-300, #808080);
+         text-decoration: line-through;
+      }
+   }
+   .complete-button {
+      cursor:pointer;
+      border: 2px solid #4ea8de;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+   
+      i {
+         display: none;
+      }
+   }
+ 
+   .remove-button {
+      font-size: 24px;
+      margin-left: 16px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      cursor:pointer;
+   }
+}
+
+
+// -------------- 수정 -------------------------------- // 
+
+// 전체영역 폰트 변경, inner 높이값 수정 - 목록이 늘어나도 리스트가 영역을 빠져나가지 않게
+#cont_wrapper {
+ font-family: 'Noto Sans KR', sans-serif;
+
+ & .inner {
+   background-color: rgba(255,255,255,0.9);
+   outline: 1px solid var(--main);
+   padding: 35px 20px;
+   min-height: 100%;
+   height: auto;
+ }
+}
+
+
+.todo_labels .todo_labels_list {
+   flex-wrap: wrap;
+   gap: 5px;
+}
+
+
+.todo_labels .todo_labels_list li {
+   font-size: 14px;
+   font-weight: 500;
+}
+
+
+#todos .todo-item {
+   border: none;
+   outline: 1px solid var(--light);
+   background-color: var(--wtcolor);
+}
+
+// complete 된 할 일 목록 아웃라인 색상 변경 
+#todos .todo-item.complete {
+   outline: 1px solid #d9d9d9;
+}
+
+// complete 된 할 일 태그 색상변경 
+#todos .todo-item.complete .todo_inn_label {
+   opacity: 0.7;
+ }
+
+
+#input-form .text-input {
+   border: none;
+   outline: 1px solid var(--light);
+}
+
+
+#input-form .user_form {
+   flex-wrap: wrap;
+}
+
+#filter-group {
+   flex-wrap: wrap;
+   border-bottom: 1px solid #ccc;
+}
+
+
+#filter-group .filter-button {
+   color: #494A50;
+}
+
+#filter-group .filter-button .count {
+   color: #494A50;
+}
+
+
+#main {
+   margin-top: 40px;
+}
+
+
+
+.empty-item {
+   color: #666666;
+}
+
+.todo-item i {
+   font-size: 20px;
+}
+
+// media query
+@media(max-width:780px){ //mobile
+   #filter-group {
+     justify-content: flex-start;
+    
+   }
+ }

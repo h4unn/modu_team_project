@@ -1,1 +1,633 @@
 @import "_reset";
+@import './todo.scss';
+// @import './movie.scss';
+// @import './stock.scss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');    // Noto Sans KR 100 - 900
+
+* { font-family: 'Noto Sans KR', sans-serif; }
+
+:root {
+  --wtcolor: #fff;
+  --light: #B3DAFF;
+  --main: #55A4FF;
+  --dark: #0083FF;
+  --txt: #080909;
+}
+
+section {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+section:nth-child(2) {
+  margin: 50px 0;
+}
+
+// 전체영역 inner
+#home-wrap .inner {
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+// 섹션 타이틀, 화살표
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  color: #494A50;
+}
+
+
+
+// <!-- 홈 날씨 영역 시작 -->
+
+#top-area{
+  display: flex;
+  gap:12px;
+  align-items: stretch;
+
+  section#home-weather {
+    width:50%;
+    padding: 20px 25px;
+    text-align: left;
+    background-color: var(--wtcolor);
+    border-radius: 12px;
+    color: var(--txt);
+    box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  
+    outline: 1px solid var(--main);
+  }
+  & .todo-area{
+    width:50%;
+    padding: 20px 25px;
+    margin:15px 0;
+    background-color: var(--wtcolor);
+    border-radius: 12px;
+    color: var(--txt);
+    box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  
+    outline: 1px solid var(--main);
+  }
+  #todos {
+    padding-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .todo-item {
+      list-style: none;
+      border-radius: 8px;
+      border: 1px solid #52A1FF;
+      padding: 12px;
+
+      & .todo_inn_label {
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background-color:#0083FF;
+      }
+    }
+
+    & .todo-item.import .todo_inn_label {
+      background-color: rgba(103, 80, 138, 1);
+    }
+
+    & .todo-item.study .todo_inn_label {
+      background-color: rgba(239, 184, 200, 1);
+    }
+
+    & .todo-item.promise .todo_inn_label {
+      background-color: rgba(121, 116, 126, 1);
+    }
+
+    & .empty-item {
+      text-align: center;
+    }
+  }
+
+  .todo-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #52A1FF;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+
+    i {
+      color: #808080;
+    }
+
+    button {
+      flex-shrink: 0;
+    }
+
+    .content {
+      font-size: 14px;
+      color: #080909;
+    }
+
+    &.complete {
+      .complete-button {
+        background-color: #4ea8de;
+
+        i {
+          display: inline-block;
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+
+      .content {
+        color: var(--Gray-300, #808080);
+        text-decoration: line-through;
+      }
+    }
+
+    .complete-button {
+      cursor: pointer;
+      border: 2px solid #4ea8de;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+
+      i {
+        display: none;
+      }
+    }
+
+    .remove-button {
+      font-size: 24px;
+      margin-left: 16px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+
+.home-weather-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+
+  & img{
+    max-width:140px;
+    width:100%;
+  }
+}
+
+.home-weather-top i {
+  font-size: 70px;
+}
+
+.home-weather-content {
+  text-align: left;
+  // padding-left: 35px;
+}
+
+.weather-num,.weather-des {
+ font-size: 23px;
+}
+
+.home-weather-top .current-weather-list {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 5px;
+ justify-content: flex-start;
+ padding-top: 15px;
+ font-size: 14px;
+ color: #494A50;
+}
+
+
+.home-weather-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  // padding-bottom: 10px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-weather-bottom > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #535252;
+
+  & b {
+    font-size: 17px;
+  }
+}
+
+.now-location {
+  font-size: 14px;
+  color: var(--main);
+}
+
+.now-location i {
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+// <!-- 홈 날씨 영역 끝 -->
+
+
+// <!-- 홈 영화 영역 시작 -->
+
+.movie-slider {
+  
+  // width: 1280px;
+  margin: 0 auto;
+  padding-top: 20px;
+  overflow-x: auto;
+  overflow-y: auto;
+} 
+
+.movie-slider::-webkit-scrollbar {
+  display: none;
+}
+
+ul.movie-container-2 {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  // outline: 1px solid red;
+}
+
+.movie-container-2 > li {
+   flex: 1;
+   position: relative;
+   border-radius: 16px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: hidden;
+   cursor: pointer;
+   height: 340px;
+   box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+   -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  //  border: 2px solid var(--light);
+}
+
+
+
+.movie-container-2 .img-area {
+  display: block;
+  width: 100%;
+  height: 70%;
+}
+
+
+.movie-container-2 .box {
+  width: 100%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+
+
+.movie-container-2 .box .title {
+  font-weight: 600;
+}
+
+.movie-container-2 .box button {
+  position: relative;
+  color: #535252;
+  font-size: 14px;
+  font-weight: 600;
+  // border: 1px solid red;
+  z-index: 0;
+}
+
+.movie-container-2 .box button::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #b5d5f5ce;
+  z-index: -1;
+}
+
+
+
+.movie-container-2 > li ul.overview {
+  position: absolute;
+  // transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  opacity: 0;
+  transition: opacity ease-in-out .5s;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0 20px;
+}
+
+.movie-container-2 > li:hover ul.overview {
+  opacity: 1;
+
+}
+
+
+ul.overview .view-title {
+  padding-bottom: 15px;
+  font-weight: 700;
+}
+
+
+ul.overview .view-des p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  // white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+ul.overview .view-des a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 2px 13px;
+  border-radius: 9px;
+  background-color: var(--main);
+  color: #fff;
+  font-size: 13px;
+
+}
+
+
+@media(max-width:780px){ //모바일
+  .movie-slider {
+    margin: 0 auto;
+    padding-top: 20px;
+    overflow-x: auto;
+    overflow-y: auto;
+  } 
+  
+  .movie-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  ul.movie-container-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+    overflow: hidden;
+    // outline: 1px solid red;
+  }
+  
+  .movie-container-2 > li {
+     position: relative;
+     border-radius: 16px;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     overflow: hidden;
+     cursor: pointer;
+     width: 100%;
+     height: 100px;
+     box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+     -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+     -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    //  border: 2px solid var(--light);
+  }
+  
+  
+  .movie-container-2 .img-area {
+    display: block;
+    width: 100%;
+    height: 100px;
+    flex: 1;
+   
+  }
+
+
+  .movie-container-2 .box {
+    flex: 1;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+
+
+  .movie-container-2 .box .title {
+    font-weight: 600;
+  }
+
+  .movie-container-2 .box button {
+    position: relative;
+    color: #535252;
+    font-size: 14px;
+    font-weight: 600;
+    // border: 1px solid red;
+    z-index: 0;
+  }
+
+  .movie-container-2 .box button::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 8px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #b5d5f5ce;
+    z-index: -1;
+  }
+
+
+
+  .movie-container-2 > li ul.overview {
+    position: absolute;
+    // transform: translateY(100%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 100%;
+    opacity: 0;
+    transition: opacity ease-in-out .5s;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0 20px;
+  }
+
+  .movie-container-2 > li:hover ul.overview {
+    opacity: 1;
+
+  }
+
+
+  ul.overview .view-title {
+    padding-bottom: 15px;
+    font-weight: 700;
+    display: none;
+  }
+
+
+  ul.overview .view-des p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
+
+  ul.overview .view-des a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 2px 13px;
+    border-radius: 9px;
+    background-color: var(--main);
+    color: #fff;
+    font-size: 13px;
+
+  }
+  
+}
+
+
+
+
+
+// <!-- 홈 영화 영역 끝 -->
+
+
+
+//  <!-- 홈 주식 영역 시작 -->
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0;
+
+}
+
+.stock-list button{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  cursor: pointer;
+  outline: 1px solid #55A4FF;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  margin: 5px 0;
+  & img{
+    max-height:25px;
+    height:100%;
+  }
+}
+
+.stock-list img{
+  margin-right: 20px;
+}
+
+.stock_name{
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.stock_price{
+  font-size: 30px;
+}
+
+.stock_rate{
+  font-size: 15px;
+  color: red;
+}
+@media(max-width:780px){ //mobile
+  #top-area{
+    flex-direction: column;
+    section#home-weather {
+      width:100%;
+      padding: 20px 25px;
+      text-align: left;
+      background-color: var(--wtcolor);
+      border-radius: 12px;
+      color: var(--txt);
+      box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+      -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+      -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    
+      outline: 1px solid var(--main);
+    }
+    & .todo-area{
+      width:100%;
+      padding: 20px 25px;
+      margin:15px 0;
+      background-color: var(--wtcolor);
+      border-radius: 12px;
+      color: var(--txt);
+      box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+      -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+      -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+    
+      outline: 1px solid var(--main);
+    }
+  }
+  
+
+}
+
+//  <!-- 홈 주식 영역 끝 -->
+
+
+
+//     <!-- 홈 투두 영역 시작 -->
+
+//     <!-- 홈 투두 영역 끝 -->
