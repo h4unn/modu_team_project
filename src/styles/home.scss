@@ -548,48 +548,64 @@ ul.overview .view-des a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px 0;
+  margin-top: 20px;
 
-}
-
-.stock-list button{
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.stock-list button{
+  // background-color: #fff;
+  // border-radius: 12px;
+  // box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  // -webkit-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
+  // -moz-box-shadow: 3px 2px 14px -9px rgba(0,0,0,0.3);
   cursor: pointer;
-  outline: 1px solid #55A4FF;
+  // outline: 1px solid #55A4FF;
+  border-bottom: 3px solid #ecedef;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  height: 40px;
-  margin: 5px 0;
+  height: 45px;
+  // margin: 5px 0;
   & img{
     max-height:25px;
     height:100%;
   }
 }
 
+.stock-list button:first-child {
+  border-top: 3px solid  rgba(255,255,255,0.8);
+ }
+
+.stock-list button:last-child{
+  border-bottom: 3px solid  rgba(255,255,255,0.8);
+
+}
+
 .stock-list img{
   margin-right: 20px;
 }
 
-.stock_name{
-  font-size: 50px;
-  font-weight: 500;
-}
+// .stock_name{
+//   font-size: 50px;
+//   font-weight: 500;
+// }
 
-.stock_price{
-  font-size: 30px;
-}
+// .stock_price{
+//   font-size: 30px;
+// }
 
-.stock_rate{
-  font-size: 15px;
-  color: red;
-}
+// .stock_rate{
+//   font-size: 15px;
+//   color: red;
+// }
 @media(max-width:780px){ //mobile
   #top-area{
     flex-direction: column;
