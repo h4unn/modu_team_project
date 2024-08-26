@@ -11,13 +11,13 @@ const holidays = ['2024-01-01', '2024-08-15', '2024-09-16','2024-09-17','2024-09
 
 // 오늘 날짜
 const today = dayjs();
-const yesterday = today.subtract(3, 'day');
+const yesterday = today.subtract(2, 'day');
 
 // 주말과 공휴일을 제외하고 오늘부터 일주일 전까지의 날짜를 담을 배열
 const dates: string[]=[];
 let currentDay = yesterday;
 
-while (dates.length < 30) {  // 30일치 영업일을 얻을 때까지 반복
+while (dates.length < 28) {  // 28일치 영업일을 얻을 때까지 반복
   const dayOfWeek = currentDay.day();
   const isHoliday = holidays.includes(currentDay.format('YYYY-MM-DD'));
 
@@ -43,6 +43,7 @@ const stockInput = document.getElementById('stock_code') as HTMLInputElement;
 const stockButton = document.getElementById('stock-button') as HTMLButtonElement;
 let defaultStockCode = '005930';
 let stock_info = document.getElementById('stock_info') as HTMLElement;
+let stockData: any[] = [];
 
 stockButton.addEventListener('click', async()=>{
   let stockCode = stockInput.value.trim();
@@ -183,38 +184,48 @@ async function fetchStockData(stockCode: string) {
 
     // 여기서 값을 넣어주지 못하고 있음
     // NORMAL SERVICE이지만 데이터가 비었음
-    priceData.push(stockService.getStock(requestParams));
+
+      priceData.push(stockService.getStock(requestParams)); 
 
   }
 
-  const stockData = await Promise.all(priceData);
+
+  stockData = await Promise.all(priceData);
+
+  // try { 
+  //   stockData = await Promise.all(priceData);
+  // } catch (error) {
+  //   console.log(error)
+  // }
+
+
   // priceData가 비어서 당연히 stockData도 비어있음
   // console.log(stockData)
 
-  stockName = stockData[0].response.body.items.item[0].itmsNm;
+  stockName = stockData[1].response.body.items?.item[0]?.itmsNm;
 
   closingPrices = stockData.map(data => {
-    return data.response.body.items?.item[0].clpr;
+    return data.response.body.items?.item[0]?.clpr;
   });
 
   stock_mrktCtg = stockData.map(data => {
-    return data.response.body.items?.item[0].mrktCtg;
+    return data.response.body.items?.item[0]?.mrktCtg;
   });
 
   stock_vs = stockData.map(data => {
-    return data.response.body.items?.item[0].vs;
+    return data.response.body.items?.item[0]?.vs;
   });
 
   stock_hipr = stockData.map(data => {
-    return data.response.body.items?.item[0].hipr;
+    return data.response.body.items?.item[0]?.hipr;
   });
 
   stock_lopr = stockData.map(data => {
-    return data.response.body.items?.item[0].lopr;
+    return data.response.body.items?.item[0]?.lopr;
   });
 
   stock_trqu = stockData.map(data => {
-    return data.response.body.items?.item[0].trqu;
+    return data.response.body.items?.item[0]?.trqu;
   });
 
   updateChart(dates, closingPrices, stockName);
@@ -237,18 +248,23 @@ function updateChart(dates: string[], closingPrices: number[], stockName: string
       }
 
 
+    // 종가는 제대로 저장됨
+    // console.log(closingPrices)
+
+    // null 값 제외하고 Math 함수 사용하기
+    closingPrices = closingPrices.filter(price => !isNaN(price));
+
     let min_value = Math.min(...closingPrices) * 0.8;
     let max_value = Math.max(...closingPrices) * 1.2;
 
-
+    
     baseChart = new (window as any).Chart(baseCtx, {
         type: 'bar',
         data: {
-            labels: [dates[29], dates[28], dates[27], dates[26], dates[25], dates[24], dates[23],dates[22],dates[21],dates[20],dates[19],dates[18],dates[17],dates[16],dates[15],dates[14],dates[13],dates[12],dates[11],dates[10],dates[9],dates[8],dates[7],dates[6],dates[5],dates[4],dates[3],dates[2],dates[1],dates[0]],
+            labels: [dates[27],dates[26],dates[25],dates[24], dates[23],dates[22],dates[21],dates[20],dates[19],dates[18],dates[17],dates[16],dates[15],dates[14],dates[13],dates[12],dates[11],dates[10],dates[9],dates[8],dates[7],dates[6],dates[5],dates[4],dates[3],dates[2],dates[1],dates[0]],
             datasets: [{
                 label: stockName + '(' + defaultStockCode + ')' + ' 종가',
-                data: [closingPrices[29], 
-                closingPrices[28], 
+                data: [
                 closingPrices[27], 
                 closingPrices[26], 
                 closingPrices[25], 
