@@ -11,7 +11,6 @@ export let state: {
   todos: [] as Todo[],
   mapTodo: new Map<string, Todo>(),
 };
-const todoMoreBtn = document.querySelector('.todo-more button');
 
 if (localStorage.getItem(STORAGE_KEY.STATE)) {
   state = JSON.parse(localStorage.getItem(STORAGE_KEY.STATE) ?? "{}");

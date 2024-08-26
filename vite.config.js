@@ -7,7 +7,7 @@ export default {
       input: {
         // 추가하고 싶은 페이지는 pages에서 추가하면 됨
         main: path.resolve(__dirname, "index.html"), // 홈
-        todo: path.resolve(__dirname, "todo.html"), // todo
+        todo: path.resolve(__dirname, "pages/todo.html"), // todo
         movies: path.resolve(__dirname, "pages/movies.html"), // 영화
         stock: path.resolve(__dirname, "pages/stock.html"), // 주식
         weather: path.resolve(__dirname, "pages/weather.html"), // 날씨
