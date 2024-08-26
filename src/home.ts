@@ -36,28 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //-------------------------- Movies ----------------------------------------//
 
     const movieListService = new MovieListService();
-    // const movieContainerEl = document.querySelector('.movie-container-2');
-
-
-    // function overView(res: MoviesResponse) {
-    //     res.results.overview = 
-        
-    //     $.movieDialog?.querySelector('img')?.setAttribute('src',`${IMGS_URL + backdrop_path}`);
-    //     if(!$.movieTit || !$.movieOriginTit || !$.movieDesc || !$.movieLike || !$.movieAudience || !$.movieGrade) return;
-    //     $.movieTit.innerHTML = title;
-    //     $.movieOriginTit.innerHTML = original_title;
-    //     $.movieDesc.innerHTML = overview;
-    //     $.movieLike.innerHTML = vote_count.toString();
-    //     $.movieAudience.innerHTML = popularity.toString();
-    //     $.movieGrade.innerHTML = vote_average.toString();
-      
-    //     $.movieDialog?.showModal();
-      
-    //     $.movieDialog?.querySelector('.close')?.addEventListener('click',()=>{
-    //       $.movieDialog?.close();
-    //     });
-    //   }
-
 
 
     /** 홈에서 영화 리스트 보여주는 함수 */
