@@ -5,8 +5,8 @@ import { handleComplete, handleRemove, handleSubmit } from "./feature";
 import { Todo } from "./models/Todo.model";
 
 export let state: {
-  [STORAGE_KEY.TODOS]: Todo[]; 
-  [STORAGE_KEY.MAP_TODO]: Map<string, Todo>; 
+  [STORAGE_KEY.TODOS]: Todo[];
+  [STORAGE_KEY.MAP_TODO]: Map<string, Todo>;
 } = {
   todos: [] as Todo[],
   mapTodo: new Map<string, Todo>(),
@@ -22,37 +22,61 @@ export function renderTodoList(todos: Todo[], entity?: Todo[]) {
   const $fragment = document.createDocumentFragment();
 
   let length = null;
-  entity ? length = entity.length : length = todos.length; 
+  entity ? (length = entity.length) : (length = todos.length);
   const completed = todos.filter((todo) => todo.completed);
-  
-  const importList = entity ? entity.filter((todo) => todo.label === '중요한일').length : todos.filter((todo) => todo.label === '중요한일').length;
-  const studyList = entity ? entity.filter((todo) => todo.label === '공부').length : todos.filter((todo) => todo.label === '공부').length;
-  const pormiseLise = entity ? entity.filter((todo) => todo.label === '약속').length : todos.filter((todo) => todo.label === '약속').length;
+
+  const importList = entity
+    ? entity.filter((todo) => todo.label === "중요한일").length
+    : todos.filter((todo) => todo.label === "중요한일").length;
+  const studyList = entity
+    ? entity.filter((todo) => todo.label === "공부").length
+    : todos.filter((todo) => todo.label === "공부").length;
+  const pormiseLise = entity
+    ? entity.filter((todo) => todo.label === "약속").length
+    : todos.filter((todo) => todo.label === "약속").length;
 
   const $filterCompleteCount = $.filterCompletedButton?.querySelector(".count");
   const $filterCreatedCount = $.filterCreatedButton?.querySelector(".count");
-  const $filterImportCount = $.filterImportButton?.querySelector(".count") as HTMLElement;
-  const $filterStudyCount = $.filterStudyButton?.querySelector(".count") as HTMLElement;
-  const $filterPromiseCount = $.filterPromiseButton?.querySelector(".count") as HTMLElement;
-  
+  const $filterImportCount = $.filterImportButton?.querySelector(
+    ".count"
+  ) as HTMLElement;
+  const $filterStudyCount = $.filterStudyButton?.querySelector(
+    ".count"
+  ) as HTMLElement;
+  const $filterPromiseCount = $.filterPromiseButton?.querySelector(
+    ".count"
+  ) as HTMLElement;
 
-if (!$filterCompleteCount || !$filterCreatedCount) return;
-  
+  if (!$filterCompleteCount || !$filterCreatedCount) return;
+
   $filterCompleteCount.textContent = `${completed.length} / ${length}`;
   $filterCreatedCount.textContent = length.toString();
 
-  $filterImportCount.textContent = `${completed.filter(completedTodo => completedTodo.label === '중요한일').length} / ${importList}`;
-  $filterStudyCount.textContent = `${completed.filter(completedTodo => completedTodo.label === '공부').length} / ${studyList}`;
-  $filterPromiseCount.textContent = `${completed.filter(completedTodo => completedTodo.label === '약속').length} / ${pormiseLise}`;
-  
+  $filterImportCount.textContent = `${
+    completed.filter((completedTodo) => completedTodo.label === "중요한일")
+      .length
+  } / ${importList}`;
+  $filterStudyCount.textContent = `${
+    completed.filter((completedTodo) => completedTodo.label === "공부").length
+  } / ${studyList}`;
+  $filterPromiseCount.textContent = `${
+    completed.filter((completedTodo) => completedTodo.label === "약속").length
+  } / ${pormiseLise}`;
+
   todos.forEach((todo) => {
     const $li = document.createElement("li");
     const classes = `todo-item ${todo.completed ? "complete " : ""}`;
     $li.className = classes;
-    switch(todo.label){
-      case '중요한일': $li.className += 'import';break
-      case '공부': $li.className += 'study';break
-      case '약속': $li.className += 'promise';break
+    switch (todo.label) {
+      case "중요한일":
+        $li.className += "import";
+        break;
+      case "공부":
+        $li.className += "study";
+        break;
+      case "약속":
+        $li.className += "promise";
+        break;
     }
     $li.dataset.id = todo.id;
     $li.onclick = function (e) {
@@ -74,7 +98,9 @@ if (!$filterCompleteCount || !$filterCreatedCount) return;
     };
 
     $li.innerHTML = `
-            <button class="complete-button ${todo.completed ? "completed" : ""}" data-action="complete">
+            <button class="complete-button ${
+              todo.completed ? "completed" : ""
+            }" data-action="complete">
               <i class="fa-solid fa-check"></i>
             </button>
             <span class="todo_inn_label">${todo.label}</span>
@@ -90,7 +116,7 @@ if (!$filterCompleteCount || !$filterCreatedCount) return;
   $.todos?.appendChild($fragment);
 }
 
-export function renderFilterList(todo_state?:string) {
+export function renderFilterList(todo_state?: string) {
   if (!$.todos) return;
   $.todos.innerHTML = "";
 
@@ -103,12 +129,31 @@ export function renderFilterList(todo_state?:string) {
 
     return;
   }
-  switch(todo_state){
-    case 'import': renderTodoList(state.todos.filter(todo => todo.label === '중요한일'),state.todos);break
-    case 'study': renderTodoList(state.todos.filter(todo => todo.label === '공부'),state.todos);break
-    case 'promis': renderTodoList(state.todos.filter(todo => todo.label === '약속'),state.todos);break
+  switch (todo_state) {
+    case "import":
+      renderTodoList(
+        state.todos.filter((todo) => todo.label === "중요한일"),
+        state.todos
+      );
+      break;
+    case "study":
+      renderTodoList(
+        state.todos.filter((todo) => todo.label === "공부"),
+        state.todos
+      );
+      break;
+    case "promis":
+      renderTodoList(
+        state.todos.filter((todo) => todo.label === "약속"),
+        state.todos
+      );
+      break;
   }
-  todo_state ?? renderTodoList(state.todos.filter((todo) => !!todo.completed),state.todos);
+  todo_state ??
+    renderTodoList(
+      state.todos.filter((todo) => !!todo.completed),
+      state.todos
+    );
 }
 
 export function renderInitTodoList() {
@@ -127,7 +172,7 @@ export function renderInitTodoList() {
   renderTodoList(state.todos);
 }
 
-export function homeRenderInit(todo_num?:number){
+export function homeRenderInit(todo_num?: number) {
   if (!$.todos) return;
   $.todos.innerHTML = "";
 
@@ -139,19 +184,17 @@ export function homeRenderInit(todo_num?:number){
           </li>`;
     return;
   }
-  if(state.todos.length > 0){
+  if (state.todos.length > 0) {
     const stateResult = state.todos;
     stateResult.reverse();
-    homeRenderTodoList(stateResult,todo_num);
+    homeRenderTodoList(stateResult, todo_num);
   }
-  
-
 }
-export function homeRenderTodoList(todos:Todo[],todo_num?:number){
+export function homeRenderTodoList(todos: Todo[], todo_num?: number) {
   const $fragment = document.createDocumentFragment();
-  
-  todos.forEach((todo,idx) => {
-    if(!todo_num) return todo_num = 3;
+
+  todos.forEach((todo, idx) => {
+    if (!todo_num) return (todo_num = 3);
     if (idx > todo_num) return;
     const $li = document.createElement("li");
     const classes = `todo-item ${todo.completed ? "complete " : ""}`;
@@ -169,14 +212,16 @@ export function homeRenderTodoList(todos:Todo[],todo_num?:number){
       if (!action || !id) return;
       switch (action) {
         case "remove":
-          return handleRemove(id,'home');
+          return handleRemove(id, "home");
         case "complete":
-          return handleComplete(id,'home');
+          return handleComplete(id, "home");
       }
     };
 
     $li.innerHTML = `
-            <button class="complete-button ${todo.completed ? "completed" : ""}" data-action="complete">
+            <button class="complete-button ${
+              todo.completed ? "completed" : ""
+            }" data-action="complete">
               <i class="fa-solid fa-check"></i>
             </button>
             <span class="todo_inn_label">${todo.label}</span>
