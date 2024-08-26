@@ -1,7 +1,7 @@
 import { getStockRequest, getStockResponse } from "../@type/stock.type";
 
-// const API_KEY = "Aw/vVGACO2Mz39KjA9aMfOslnFkOJssnveVp0SkeK+Svru1wPZCiRMvNew9FjJkJ+rL7B2GOH6WxBCSkG7QWBQ==";
-const API_KEY = "mmgLc5RFMR2pSLYDzJG4hjwJ3YhhENLjNNLB8gydDWy7v8vWYsFV7STq42VHvIZWnbumP3L6Qrts6y/iG9p4zA==";
+const API_KEY = "Aw/vVGACO2Mz39KjA9aMfOslnFkOJssnveVp0SkeK+Svru1wPZCiRMvNew9FjJkJ+rL7B2GOH6WxBCSkG7QWBQ==";
+// const API_KEY = "mmgLc5RFMR2pSLYDzJG4hjwJ3YhhENLjNNLB8gydDWy7v8vWYsFV7STq42VHvIZWnbumP3L6Qrts6y/iG9p4zA==";
 
 export class StockService {
   /** 주식 조회 */
